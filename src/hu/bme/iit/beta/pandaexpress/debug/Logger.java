@@ -1,20 +1,19 @@
 package hu.bme.iit.beta.pandaexpress.debug;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class Logger {
     private static Map<Object, String> gameObjects;
-    private static Stack<String> functionStack;
+    private static Deque<String> functionStack;
 
     static {
         gameObjects = new HashMap<>();
-        functionStack = new Stack<String>();
+        functionStack = new LinkedList<>();
     }
 
-    public static void add(Object newObject, String name){
-        gameObjects.put(newObject, name);
+    public static<T> T addAlias(T object, String name){
+        gameObjects.put(object, name);
+        return object;
     }
 
     public static void startFunction(String functionName, Object ...params){
@@ -38,6 +37,7 @@ public class Logger {
         endFunction(null);
     }
 
+    // returns object as a string, either by finding an alias or using Object.toString
     private static String getObjectString(Object obj){
         if(obj == null) return "null";
         String parameterString;
@@ -54,12 +54,13 @@ public class Logger {
             System.out.print("\t");
     }
 
-    public static void endFunction(Object returnValue){
-        String func = functionStack.pop();
+    public static<T> T endFunction(T returnValue){
+        String func = functionStack.pop(); // ha akarjuk ki is írhatjuk
         writeTabs();
         System.out.print("< ");
         if(returnValue != null)
             System.out.print("return " + getObjectString(returnValue));
         System.out.print("\n");
+        return returnValue;
     }
 }
