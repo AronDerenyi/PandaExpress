@@ -24,7 +24,11 @@ public class Animal {
 
 	public void die() {
 		Logger.startFunction("die");
+
+		unfollow();
+		release();
 		dead = true;
+
 		Logger.endFunction();
 	}
 
