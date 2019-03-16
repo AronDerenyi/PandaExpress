@@ -42,9 +42,11 @@ public class Menu {
         System.out.println("Panda steps:");
 
         //init
+	    Logger.disable();
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
 	    Panda panda = Logger.addAlias(new Panda(tileUnderPanda), "Panda");
+	    Logger.enable();
 
         //run
 	    panda.move(tileWherePandaSteps);
