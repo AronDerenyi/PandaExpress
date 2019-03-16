@@ -46,14 +46,14 @@ public class Menu {
         Tile tileWherePandaSteps = new Tile();
 
         // save objects in logger
-        Logger.add(panda, "Panda");
-        Logger.add(tileUnderPanda, "tileUnderPanda");
-        Logger.add(tileWherePandaSteps, "tileWherePandaSteps");
+        Logger.addAlias(panda, "Panda");
+        Logger.addAlias(tileUnderPanda, "tileUnderPanda");
+        Logger.addAlias(tileWherePandaSteps, "tileWherePandaSteps");
 
         //run
         // test data
         Tile t = new Tile();
-        Logger.add(t, "tile1");
+        Logger.addAlias(t, "tile1");
         Logger.startFunction("func", 1, "param", true);
         Logger.startFunction("func2", t, null);
         Logger.endFunction();
