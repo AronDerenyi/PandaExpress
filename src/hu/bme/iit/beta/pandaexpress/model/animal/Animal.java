@@ -27,6 +27,7 @@ public class Animal {
 
 		unfollow();
 		release();
+		leaveTile();
 		dead = true;
 
 		Logger.endFunction();
