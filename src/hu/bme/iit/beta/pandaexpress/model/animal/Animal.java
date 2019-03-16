@@ -84,6 +84,7 @@ public class Animal {
 
 	public void release() {
 		Logger.startFunction("release");
+		followedBy.release();
 		followedBy.unfollow();
 		Logger.endFunction();
 	}
