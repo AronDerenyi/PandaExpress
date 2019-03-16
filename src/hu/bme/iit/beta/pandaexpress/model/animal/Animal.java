@@ -35,21 +35,32 @@ public class Animal {
 
 	public void leaveTile() {
 		Logger.startFunction("leaveTile");
-		tile.setAnimal(this);
+
+		if (tile != null) {
+			tile.setAnimal(this);
+		}
+
 		Logger.endFunction();
 	}
 
 	public void replaceTile(Tile tile) {
 		Logger.startFunction("replaceTile", tile);
+
 		leaveTile();
 		tile.setAnimal(this);
+
 		Logger.endFunction();
 	}
 
 	public void move(Tile tile) {
 		Logger.startFunction("move", tile);
-		Tile prev = this.tile;
-		if (tile.stepOn(this)) followedBy.move(prev);
+
+		Tile prevTile = this.tile;
+		boolean stepped = tile.stepOn(this);
+		if (stepped && prevTile != null && followedBy != null) {
+			followedBy.move(prevTile);
+		}
+
 		Logger.endFunction();
 	}
 
@@ -67,7 +78,9 @@ public class Animal {
 		Logger.startFunction("follow", animal);
 
 		unfollow();
-		animal.followedBy.unfollow();
+		if (animal.followedBy != null) {
+			animal.followedBy.unfollow();
+		}
 
 		following = animal;
 		following.followedBy = this;
@@ -77,15 +90,23 @@ public class Animal {
 
 	public void unfollow() {
 		Logger.startFunction("unfollow");
-		following.followedBy = null;
-		following = null;
+
+		if (following != null) {
+			following.followedBy = null;
+			following = null;
+		}
+
 		Logger.endFunction();
 	}
 
 	public void release() {
 		Logger.startFunction("release");
-		followedBy.release();
-		followedBy.unfollow();
+
+		if (followedBy != null) {
+			followedBy.release();
+			followedBy.unfollow();
+		}
+
 		Logger.endFunction();
 	}
 
