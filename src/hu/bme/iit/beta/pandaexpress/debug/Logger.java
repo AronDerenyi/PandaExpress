@@ -7,8 +7,9 @@ public class Logger {
 	private static Map<Object, String> aliases = new HashMap<>();
 	private static Deque<String> functionStack = new LinkedList<>();
 
-	public static void addAlias(Object object, String alias) {
+	public static <T> T addAlias(T object, String alias) {
 		aliases.put(object, alias);
+		return object;
 	}
 
 	public static void startFunction(String functionName, Object... params) {
