@@ -5,6 +5,7 @@ import hu.bme.iit.beta.pandaexpress.model.tile.Entry;
 
 public class Stage {
 
+	private static int score = 0;
 	private static Entry entry = null;
 
 	public static Entry getEntry() {
@@ -16,5 +17,9 @@ public class Stage {
 		Logger.startFunction("setEntry", entry);
 		Stage.entry = entry;
 		Logger.endFunction();
+	}
+
+	public static void score(int amount) {
+		score += amount;
 	}
 }
