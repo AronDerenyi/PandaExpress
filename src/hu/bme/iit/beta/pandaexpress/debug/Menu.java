@@ -40,20 +40,13 @@ public class Menu {
 
     private void pandaSteps(){
         System.out.println("Panda steps:");
+
         //init
-        Panda panda = Logger.addAlias(new Panda(), "Panda");
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
+	    Panda panda = Logger.addAlias(new Panda(tileUnderPanda), "Panda");
 
         //run
-        // test data
-        Tile t = new Tile();
-        Logger.addAlias(t, "tile1");
-        Logger.startFunction("func", 1, "param", true);
-        Logger.startFunction("func2", t, null);
-        Logger.endFunction();
-        Logger.startFunction("func3");
-        Logger.endFunction();
-        Logger.endFunction("retVal");
+	    panda.move(tileWherePandaSteps);
     }
 }
