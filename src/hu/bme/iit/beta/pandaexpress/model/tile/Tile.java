@@ -12,34 +12,34 @@ public class Tile {
 	private Animal animal = null;
 
 	public Tile() {
-		Logger.startFunction("Tile");
+		Logger.startFunction(this, "Tile");
 		Logger.endFunction();
 	}
 
 	public Tile[] getNeighbors() {
-		Logger.startFunction("getNeighbors");
+		Logger.startFunction(this, "getNeighbors");
 		return Logger.endFunction(neighbors.toArray(new Tile[0]));
 	}
 
 	public void connectNeighbor(Tile neighbor) {
-		Logger.startFunction("connectNeighbor", neighbor);
+		Logger.startFunction(this, "connectNeighbor", neighbor);
 		neighbors.add(neighbor);
 		Logger.endFunction();
 	}
 
 	public Animal getAnimal() {
-		Logger.startFunction("getAnimal");
+		Logger.startFunction(this, "getAnimal");
 		return Logger.endFunction(animal);
 	}
 
 	public void setAnimal(Animal animal) {
-		Logger.startFunction("setAnimal", animal);
+		Logger.startFunction(this, "setAnimal", animal);
 		this.animal = animal;
 		Logger.endFunction();
 	}
 
 	public boolean stepOn(Animal animal) {
-		Logger.startFunction("stepOn", animal);
+		Logger.startFunction(this, "stepOn", animal);
 		if (this.animal == null) {
 			animal.replaceTile(this);
 			return Logger.endFunction(true);
@@ -49,7 +49,7 @@ public class Tile {
 	}
 
 	public boolean sitOn(Animal animal) {
-		Logger.startFunction("sitOn", animal);
+		Logger.startFunction(this, "sitOn", animal);
 		return Logger.endFunction(false);
 	}
 }

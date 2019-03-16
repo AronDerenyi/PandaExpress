@@ -11,13 +11,13 @@ public class Orangutan extends Animal implements Steppable {
 	private boolean exiting = false;
 
 	public Orangutan(Tile tile) {
-		Logger.startFunction("Orangutan", tile);
+		Logger.startFunction(this, "Orangutan", tile);
 		move(tile);
 		Logger.endFunction();
 	}
 
 	public void move(Tile tile) {
-		Logger.startFunction("move", tile);
+		Logger.startFunction(this, "move", tile);
 
 		// Grab the animal on the tile the Orangutan tries to step on
 		Animal animal = tile.getAnimal();
@@ -43,19 +43,19 @@ public class Orangutan extends Animal implements Steppable {
 	}
 
 	public boolean follow(Animal animal) {
-		Logger.startFunction("follow", animal);
+		Logger.startFunction(this, "follow", animal);
 		return Logger.endFunction(false);
 	}
 
 	public void exit() {
-		Logger.startFunction("exit");
+		Logger.startFunction(this, "exit");
 		exiting = true;
 		Logger.endFunction();
 	}
 
 	@Override
 	public void step() {
-		Logger.startFunction("step");
+		Logger.startFunction(this, "step");
 
 		if (exiting) {
 			// Tries to move to the entry

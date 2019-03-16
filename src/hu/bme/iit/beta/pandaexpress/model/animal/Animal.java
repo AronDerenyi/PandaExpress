@@ -13,17 +13,17 @@ public class Animal {
 	private Animal followedBy = null;
 
 	public Animal() {
-		Logger.startFunction("Animal");
+		Logger.startFunction(this, "Animal");
 		Logger.endFunction();
 	}
 
 	public boolean isDead() {
-		Logger.startFunction("isDead");
+		Logger.startFunction(this, "isDead");
 		return Logger.endFunction(dead);
 	}
 
 	public void die() {
-		Logger.startFunction("die");
+		Logger.startFunction(this, "die");
 
 		unfollow();
 		release();
@@ -34,12 +34,12 @@ public class Animal {
 	}
 
 	public Tile getTile() {
-		Logger.startFunction("getTile");
+		Logger.startFunction(this, "getTile");
 		return Logger.endFunction(tile);
 	}
 
 	public void leaveTile() {
-		Logger.startFunction("leaveTile");
+		Logger.startFunction(this, "leaveTile");
 
 		if (tile != null) {
 			tile.setAnimal(this);
@@ -49,7 +49,7 @@ public class Animal {
 	}
 
 	public void replaceTile(Tile tile) {
-		Logger.startFunction("replaceTile", tile);
+		Logger.startFunction(this, "replaceTile", tile);
 
 		leaveTile();
 		tile.setAnimal(this);
@@ -58,7 +58,7 @@ public class Animal {
 	}
 
 	public void move(Tile tile) {
-		Logger.startFunction("move", tile);
+		Logger.startFunction(this, "move", tile);
 
 		Tile prevTile = this.tile;
 		boolean stepped = tile.stepOn(this);
@@ -70,17 +70,17 @@ public class Animal {
 	}
 
 	public Animal getFollowing() {
-		Logger.startFunction("getFollowing");
+		Logger.startFunction(this, "getFollowing");
 		return Logger.endFunction(following);
 	}
 
 	public Animal getFollowedBy() {
-		Logger.startFunction("getFollowedBy");
+		Logger.startFunction(this, "getFollowedBy");
 		return Logger.endFunction(followedBy);
 	}
 
 	public boolean follow(Animal animal) {
-		Logger.startFunction("follow", animal);
+		Logger.startFunction(this, "follow", animal);
 
 		unfollow();
 		if (animal.followedBy != null) {
@@ -94,7 +94,7 @@ public class Animal {
 	}
 
 	public void unfollow() {
-		Logger.startFunction("unfollow");
+		Logger.startFunction(this, "unfollow");
 
 		if (following != null) {
 			following.followedBy = null;
@@ -105,7 +105,7 @@ public class Animal {
 	}
 
 	public void release() {
-		Logger.startFunction("release");
+		Logger.startFunction(this, "release");
 
 		if (followedBy != null) {
 			followedBy.release();
@@ -116,17 +116,17 @@ public class Animal {
 	}
 
 	public void hearBeeping() {
-		Logger.startFunction("hearBeeping");
+		Logger.startFunction(this, "hearBeeping");
 		Logger.endFunction();
 	}
 
 	public void hearRinging() {
-		Logger.startFunction("hearRinging");
+		Logger.startFunction(this, "hearRinging");
 		Logger.endFunction();
 	}
 
 	public void exit() {
-		Logger.startFunction("exit");
+		Logger.startFunction(this, "exit");
 		Logger.endFunction();
 	}
 }

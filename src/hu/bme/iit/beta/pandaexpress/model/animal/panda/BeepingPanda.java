@@ -7,13 +7,13 @@ public class BeepingPanda extends Panda {
 
 	public BeepingPanda(Tile tile) {
 		super(tile);
-		Logger.startFunction("BeepingPanda", tile);
+		Logger.startFunction(this, "BeepingPanda", tile);
 		Logger.endFunction();
 	}
 
 	@Override
 	public void hearBeeping() {
-		Logger.startFunction("hearBeeping");
+		Logger.startFunction(this, "hearBeeping");
 		getTile().stepOn(this);
 		Logger.endFunction();
 	}

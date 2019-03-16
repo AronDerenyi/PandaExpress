@@ -7,13 +7,13 @@ public class RingingPanda extends Panda {
 
 	public RingingPanda(Tile tile) {
 		super(tile);
-		Logger.startFunction("RingingPanda", tile);
+		Logger.startFunction(this, "RingingPanda", tile);
 		Logger.endFunction();
 	}
 
 	@Override
 	public void hearRinging() {
-		Logger.startFunction("hearRinging");
+		Logger.startFunction(this, "hearRinging");
 		unfollow();
 		release();
 		Logger.endFunction();

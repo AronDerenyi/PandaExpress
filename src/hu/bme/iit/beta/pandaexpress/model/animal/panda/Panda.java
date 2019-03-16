@@ -11,13 +11,13 @@ public class Panda extends Animal implements Steppable {
 	private boolean exiting = false;
 
 	public Panda(Tile tile) {
-		Logger.startFunction("Panda", tile);
+		Logger.startFunction(this, "Panda", tile);
 		move(tile);
 		Logger.endFunction();
 	}
 
 	public void exit() {
-		Logger.startFunction("exit");
+		Logger.startFunction(this, "exit");
 
 		// Only exit if it's following someone
 		if (getFollowing() != null) {
@@ -29,7 +29,7 @@ public class Panda extends Animal implements Steppable {
 
 	@Override
 	public void step() {
-		Logger.startFunction("step");
+		Logger.startFunction(this, "step");
 
 		if (exiting) {
 			Stage.score(1);

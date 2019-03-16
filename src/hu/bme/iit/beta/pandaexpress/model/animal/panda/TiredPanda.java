@@ -10,13 +10,13 @@ public class TiredPanda extends Panda {
 
 	public TiredPanda(Tile tile) {
 		super(tile);
-		Logger.startFunction("TiredPanda", tile);
+		Logger.startFunction(this, "TiredPanda", tile);
 		Logger.endFunction();
 	}
 
 	@Override
 	public void move(Tile tile) {
-		Logger.startFunction("move", tile);
+		Logger.startFunction(this, "move", tile);
 
 		super.move(tile);
 
@@ -35,7 +35,7 @@ public class TiredPanda extends Panda {
 
 	@Override
 	public boolean follow(Animal animal) {
-		Logger.startFunction("follow", animal);
+		Logger.startFunction(this, "follow", animal);
 		if (sitting) {
 			return Logger.endFunction(false);
 		} else {
@@ -45,7 +45,7 @@ public class TiredPanda extends Panda {
 
 	@Override
 	public void step() {
-		Logger.startFunction("step");
+		Logger.startFunction(this, "step");
 		if (!sitting) super.step();
 		Logger.endFunction();
 	}
