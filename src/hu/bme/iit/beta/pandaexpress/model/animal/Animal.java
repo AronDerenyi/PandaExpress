@@ -65,8 +65,13 @@ public class Animal {
 
 	public boolean follow(Animal animal) {
 		Logger.startFunction("follow", animal);
+
+		unfollow();
+		animal.followedBy.unfollow();
+
 		following = animal;
 		following.followedBy = this;
+
 		return Logger.endFunction(true);
 	}
 
