@@ -12,7 +12,7 @@ public class Chair extends Tile {
 	
 	@Override
 	public boolean stepOn(Animal a) {
-		Logger.startFunction(this, "stepOn");
+		Logger.startFunction(this, "stepOn", a);
 		return Logger.endFunction(false);
 	}
 	
@@ -23,7 +23,7 @@ public class Chair extends Tile {
 			a.replaceTile(this);
 			return Logger.endFunction(true);
 		} else {
-			return false;
+			return Logger.endFunction(false);
 		}
 	}
 

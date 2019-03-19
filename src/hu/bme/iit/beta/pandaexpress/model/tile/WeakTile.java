@@ -8,7 +8,7 @@ public class WeakTile extends Tile{
 	private int lives;
 	
 	public WeakTile(int lives) {
-		Logger.startFunction(this, "WeakTile");
+		Logger.startFunction(this, "WeakTile", lives);
 		this.lives= lives;
 		Logger.endFunction();
 	}
