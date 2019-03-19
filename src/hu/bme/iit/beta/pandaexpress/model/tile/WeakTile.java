@@ -14,7 +14,7 @@ public class WeakTile extends Tile{
 	}
 	
 	private void breakTile() {
-		Logger.startFunction(this, "break");
+		Logger.startFunction(this, "breakTile");
 		if(lives > 0) {
 			lives--;
 		} else {
