@@ -14,6 +14,12 @@ public class Wardrobe extends Tile {
 		Logger.endFunction();
 	}
 	
+	public void setEntry(Tile entry) {
+		Logger.startFunction(this, "setEntry", entry);
+		this.entry= entry;
+		Logger.endFunction();
+	}
+	
 	public void connect(Wardrobe pair) {
 		Logger.startFunction(this, "connect", pair);
 		this.pair= pair;
@@ -23,12 +29,7 @@ public class Wardrobe extends Tile {
 	@Override
 	public boolean stepOn(Animal a) {
 		Logger.startFunction(this, "stepOn", a);
-		boolean success= pair.entry.stepOn(a);
-		if(success) {
-			return Logger.endFunction(true);
-		} else {
-			return Logger.endFunction(false);
-		}
+		return Logger.endFunction(pair.entry.stepOn(a));
 	}
 	
 	@Override
@@ -36,5 +37,6 @@ public class Wardrobe extends Tile {
 		Logger.startFunction(this, "getAnimal");
 		return Logger.endFunction(pair.entry.getAnimal());
 	}
+	
 
 }
