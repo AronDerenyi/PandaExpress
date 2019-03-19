@@ -30,5 +30,11 @@ public class Wardrobe extends Tile {
 			return Logger.endFunction(false);
 		}
 	}
+	
+	@Override
+	public Animal getAnimal() {
+		Logger.startFunction(this, "getAnimal");
+		return Logger.endFunction(pair.entry.getAnimal());
+	}
 
 }
