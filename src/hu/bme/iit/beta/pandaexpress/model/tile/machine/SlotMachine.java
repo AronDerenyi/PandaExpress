@@ -25,10 +25,11 @@ public class SlotMachine extends Machine {
 		Logger.startFunction(this, "makeNoise");
 		
 		Tile[] neighbors= getNeighbors();
-		for(int i=0; i<neighbors.length; i++) {
-			if(neighbors[i].getAnimal()!=null) {
-				neighbors[i].getAnimal().hearRinging();
-			}
+
+		for(Tile neighbor: neighbors){
+			Animal animalOnNeighbour = neighbor.getAnimal();
+			if(animalOnNeighbour != null)
+				animalOnNeighbour.hearRinging();
 		}
 		
 		Logger.endFunction();
