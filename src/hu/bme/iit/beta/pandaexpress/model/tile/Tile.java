@@ -24,6 +24,7 @@ public class Tile {
 	public void connectNeighbor(Tile neighbor) {
 		Logger.startFunction(this, "connectNeighbor", neighbor);
 		neighbors.add(neighbor);
+		neighbor.neighbors.add(this);
 		Logger.endFunction();
 	}
 
