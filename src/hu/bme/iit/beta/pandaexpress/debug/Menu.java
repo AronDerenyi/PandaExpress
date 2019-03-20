@@ -5,6 +5,7 @@ import hu.bme.iit.beta.pandaexpress.model.animal.panda.BeepingPanda;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.Panda;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.RingingPanda;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
+import hu.bme.iit.beta.pandaexpress.model.tile.WeakTile;
 import hu.bme.iit.beta.pandaexpress.model.tile.machine.SlotMachine;
 
 import java.io.IOException;
@@ -22,6 +23,8 @@ public class Menu {
             System.out.println("\t3: Panda follows orangutan");
             System.out.println("\t4: ");
             System.out.println("\t5: Slot machine rings");
+            System.out.println("\t4: ");
+            System.out.println("\t7: Panda steps on weak tile");
 
             Scanner reader = new Scanner(System.in);
             int menuItem = reader.nextInt();
@@ -45,6 +48,9 @@ public class Menu {
                 break;
             case 5:
                 slotMachineRings();
+                break;
+            case 7:
+                pandaStepsOnWeakTile();
                 break;
             default:
                 System.out.println("The selected number isn't a menu item");
@@ -119,5 +125,28 @@ public class Menu {
 
         //run
         slotMachine.step();
+    }
+
+    private void pandaStepsOnWeakTile(){
+        System.out.println("Panda steps on weak tile:");
+
+        //init
+        Logger.disable();
+
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        WeakTile tileWherePandaSteps = Logger.addAlias(new WeakTile(), "weakTile");
+
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
+
+        Logger.enable();
+
+        tileUnderPanda.connectNeighbor(tileWherePandaSteps);
+        System.out.println("How many lives should the weak tile have? (1-20)");
+        Scanner reader = new Scanner(System.in);
+        int lives = reader.nextInt();
+        tileWherePandaSteps.setLives(lives);
+
+        //run
+        panda.move(tileWherePandaSteps);
     }
 }
