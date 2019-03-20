@@ -5,26 +5,27 @@ import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 
 public class WeakTile extends Tile{
 	
-	private int lives;
-	
-	public WeakTile(int lives) {
-		Logger.startFunction(this, "WeakTile", lives);
-		this.lives= lives;
-		Logger.endFunction();
-	}
-	
-	private void breakTile() {
+	private int lives = 20;
+
+    private void breakTile() {
 		Logger.startFunction(this, "breakTile");
 		if(lives > 0) {
 			lives--;
 		} else {
 			lives = 0;
 		}
-		
-		if(lives == 0 && getAnimal() != null) {
-			getAnimal().die();
+
+		Animal animalOnTile = getAnimal();
+		if(lives == 0 && animalOnTile != null) {
+			animalOnTile.die();
 		}
 		
+		Logger.endFunction();
+	}
+
+	public void setLives(int lives){
+    	Logger.startFunction(this, "setLives", lives);
+		this.lives = lives;
 		Logger.endFunction();
 	}
 	

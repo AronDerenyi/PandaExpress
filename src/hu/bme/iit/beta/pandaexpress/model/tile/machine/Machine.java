@@ -22,14 +22,15 @@ public abstract class Machine extends Tile implements Steppable {
 	@Override
 	public void step() {
 		Logger.startFunction(this, "step");
-		counter++;
-		
-		for(int i=0; i<whenToMakeNoise.length; i++) {
-			if(counter == whenToMakeNoise[i]) {
+
+
+		for(int shallMakeNoise : whenToMakeNoise) {
+			if(counter == shallMakeNoise) {
 				makeNoise();
 			}
 		}
-		
+
+		counter++;
 		Logger.endFunction();
 	}
 }
