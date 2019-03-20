@@ -11,10 +11,11 @@ public class Wardrobe extends Tile {
 	public Wardrobe(Tile entry) {
 		Logger.startFunction(this, "Wardrobe", entry);
 		this.entry= entry;
+		this.connectNeighbor(entry);
 		Logger.endFunction();
 	}
-	
-	public void setEntry(Tile entry) {
+
+    public void setEntry(Tile entry) {
 		Logger.startFunction(this, "setEntry", entry);
 		this.entry= entry;
 		Logger.endFunction();
