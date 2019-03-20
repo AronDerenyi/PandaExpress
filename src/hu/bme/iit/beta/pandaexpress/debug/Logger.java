@@ -30,8 +30,8 @@ public class Logger {
 		printTabs();
 		functionStack.push(functionName);
 
-		// print "object.function()" if object is not null
-		if (object != null) print(objectToString(object) + ".");
+		// print "object.function()"
+		print(objectToString(object) + ".");
 		print(functionName + "(");
 
 		// if there are params, print parameters "param1, param2" etc.

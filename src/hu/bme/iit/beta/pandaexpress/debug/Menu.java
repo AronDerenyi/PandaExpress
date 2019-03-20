@@ -1,5 +1,7 @@
 package hu.bme.iit.beta.pandaexpress.debug;
 
+import hu.bme.iit.beta.pandaexpress.model.animal.Orangutan;
+import hu.bme.iit.beta.pandaexpress.model.animal.panda.BeepingPanda;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.Panda;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
@@ -14,6 +16,8 @@ public class Menu {
             System.out.println("\t0: Quit");
 
             System.out.println("\t1: Panda steps");
+            System.out.println("\t2: ");
+            System.out.println("\t3: Panda follows orangutan");
 
             Scanner reader = new Scanner(System.in);
             int menuItem = reader.nextInt();
@@ -32,6 +36,9 @@ public class Menu {
             case 1:
                 pandaSteps();
                 break;
+            case 3:
+                pandaFollowsOrangutan();
+                break;
             default:
                 System.out.println("The selected number isn't a menu item");
                 return;
@@ -45,10 +52,33 @@ public class Menu {
 	    Logger.disable();
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
-	    Panda panda = Logger.addAlias(new Panda(tileUnderPanda), "Panda");
+	    Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
 	    Logger.enable();
+
+	    tileUnderPanda.connectNeighbor(tileWherePandaSteps);
 
         //run
 	    panda.move(tileWherePandaSteps);
+    }
+
+    private void pandaFollowsOrangutan(){
+        System.out.println("Panda follows orangutan:");
+
+        //init
+        Logger.disable();
+        Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        Tile tileWhereOrangutanSteps = Logger.addAlias(new Tile(), "tileWhereOrangutanSteps");
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
+        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+        Logger.enable();
+
+        tileUnderOrangutan.connectNeighbor(tileUnderPanda);
+        tileUnderOrangutan.connectNeighbor(tileWhereOrangutanSteps);
+
+        panda.follow(orangutan);
+
+        //run
+        orangutan.move(tileWhereOrangutanSteps);
     }
 }
