@@ -17,7 +17,7 @@ public class Menu {
     public void chooseMenuItems(){
         while(true){
             System.out.println("Choose a menu item form below: ");
-            System.out.println("\t0: Quit");
+            System.out.println("\t0:  Quit");
 
             System.out.println("\t1:  Panda steps");
             System.out.println("\t2:  ");
@@ -32,6 +32,8 @@ public class Menu {
             System.out.println("\t11: Orangutan escorts a panda out");
             System.out.println("\t12: ");
             System.out.println("\t13: Orangutan walks panda through a wardrobe");
+            System.out.println("\t14: ");
+            System.out.println("\t15: Panda tries to step on orangutan");
 
             Scanner reader = new Scanner(System.in);
             int menuItem = reader.nextInt();
@@ -67,6 +69,9 @@ public class Menu {
                 break;
             case 13:
                 orangutanWalksPandaThroughWardrobe();
+                break;
+            case 15:
+                pandaTriesToStepOnOrangutan();
                 break;
             default:
                 System.out.println("The selected number isn't a menu item");
@@ -242,6 +247,26 @@ public class Menu {
         //run
         orangutan.move(wardrobe);
         orangutan.move(afterWardrobeEntry);
+    }
+
+    private void pandaTriesToStepOnOrangutan(){
+        System.out.println("Panda tries to step on orangutan:");
+
+        //init
+        Logger.disable();
+
+        Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
+        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+
+        Logger.enable();
+
+        tileUnderOrangutan.connectNeighbor(tileUnderPanda);
+
+        //run
+        panda.move(tileUnderOrangutan);
     }
 
 }
