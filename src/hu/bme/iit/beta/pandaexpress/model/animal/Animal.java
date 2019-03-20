@@ -3,7 +3,7 @@ package hu.bme.iit.beta.pandaexpress.model.animal;
 import hu.bme.iit.beta.pandaexpress.debug.Logger;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
-public class Animal {
+abstract public class Animal {
 
 	private boolean dead = false;
 
@@ -42,7 +42,7 @@ public class Animal {
 		Logger.startFunction(this, "leaveTile");
 
 		if (tile != null) {
-			tile.setAnimal(this);
+			tile.setAnimal(null);
 		}
 
 		Logger.endFunction();
@@ -53,6 +53,7 @@ public class Animal {
 
 		leaveTile();
 		tile.setAnimal(this);
+		this.tile = tile;
 
 		Logger.endFunction();
 	}

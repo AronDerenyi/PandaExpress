@@ -6,7 +6,7 @@ import hu.bme.iit.beta.pandaexpress.model.Steppable;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
-public class Panda extends Animal implements Steppable {
+abstract public class Panda extends Animal implements Steppable {
 
 	private boolean exiting = false;
 
