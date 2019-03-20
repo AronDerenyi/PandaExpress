@@ -19,17 +19,19 @@ public class Menu {
             System.out.println("Choose a menu item form below: ");
             System.out.println("\t0: Quit");
 
-            System.out.println("\t1: Panda steps");
-            System.out.println("\t2: ");
-            System.out.println("\t3: Panda follows orangutan");
-            System.out.println("\t4: ");
-            System.out.println("\t5: Slot machine rings");
-            System.out.println("\t6: ");
-            System.out.println("\t7: Panda steps on weak tile");
-            System.out.println("\t8: ");
-            System.out.println("\t9: Tired panda sits on chair");
+            System.out.println("\t1:  Panda steps");
+            System.out.println("\t2:  ");
+            System.out.println("\t3:  Panda follows orangutan");
+            System.out.println("\t4:  ");
+            System.out.println("\t5:  Slot machine rings");
+            System.out.println("\t6:  ");
+            System.out.println("\t7:  Panda steps on weak tile");
+            System.out.println("\t8:  ");
+            System.out.println("\t9:  Tired panda sits on chair");
             System.out.println("\t10: ");
             System.out.println("\t11: Orangutan escorts a panda out");
+            System.out.println("\t12: ");
+            System.out.println("\t13: Orangutan walks panda through a wardrobe");
 
             Scanner reader = new Scanner(System.in);
             int menuItem = reader.nextInt();
@@ -62,6 +64,9 @@ public class Menu {
                 break;
             case 11:
                 orangutanEscortsPandaOut();
+                break;
+            case 13:
+                orangutanWalksPandaThroughWardrobe();
                 break;
             default:
                 System.out.println("The selected number isn't a menu item");
@@ -197,6 +202,7 @@ public class Menu {
         Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
 
         Stage.getInstance().setEntry(entry);
+
         Logger.enable();
 
         tileUnderOrangutan.connectNeighbor(tileUnderPanda);
@@ -206,6 +212,36 @@ public class Menu {
 
         //run
         orangutan.move(exit); // TODO: Exit.move is not implemented correctly
+    }
+
+    private void orangutanWalksPandaThroughWardrobe(){
+        System.out.println("Orangutan walks panda through wWardrobe");
+
+        //init
+        Logger.disable();
+
+        Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        Wardrobe wardrobe = Logger.addAlias(new Wardrobe(tileUnderOrangutan), "wardrobe");
+        Tile otherWardrobeEntry = Logger.addAlias(new Tile(), "otherWardrobeEntry");
+        Wardrobe otherWardrobe = Logger.addAlias(new Wardrobe(otherWardrobeEntry), "otherWardrobe");
+        Tile afterWardrobeEntry = Logger.addAlias(new Tile(), "afterWardrobeEntry");
+
+        Logger.enable();
+
+        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
+
+        tileUnderOrangutan.connectNeighbor(tileUnderPanda);
+        otherWardrobeEntry.connectNeighbor(afterWardrobeEntry);
+
+        wardrobe.connect(otherWardrobe);
+
+        panda.follow(orangutan);
+
+        //run
+        orangutan.move(wardrobe);
+        orangutan.move(afterWardrobeEntry);
     }
 
 }
