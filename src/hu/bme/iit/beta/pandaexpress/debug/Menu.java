@@ -1,11 +1,12 @@
 package hu.bme.iit.beta.pandaexpress.debug;
 
+import hu.bme.iit.beta.pandaexpress.model.Stage;
 import hu.bme.iit.beta.pandaexpress.model.animal.Orangutan;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.BeepingPanda;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.Panda;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.RingingPanda;
-import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
-import hu.bme.iit.beta.pandaexpress.model.tile.WeakTile;
+import hu.bme.iit.beta.pandaexpress.model.animal.panda.TiredPanda;
+import hu.bme.iit.beta.pandaexpress.model.tile.*;
 import hu.bme.iit.beta.pandaexpress.model.tile.machine.SlotMachine;
 
 import java.io.IOException;
@@ -23,8 +24,12 @@ public class Menu {
             System.out.println("\t3: Panda follows orangutan");
             System.out.println("\t4: ");
             System.out.println("\t5: Slot machine rings");
-            System.out.println("\t4: ");
+            System.out.println("\t6: ");
             System.out.println("\t7: Panda steps on weak tile");
+            System.out.println("\t8: ");
+            System.out.println("\t9: Tired panda sits on chair");
+            System.out.println("\t10: ");
+            System.out.println("\t11: Orangutan escorts a panda out");
 
             Scanner reader = new Scanner(System.in);
             int menuItem = reader.nextInt();
@@ -51,6 +56,12 @@ public class Menu {
                 break;
             case 7:
                 pandaStepsOnWeakTile();
+                break;
+            case 9:
+                tiredPandaSitsOnChair();
+                break;
+            case 11:
+                orangutanEscortsPandaOut();
                 break;
             default:
                 System.out.println("The selected number isn't a menu item");
@@ -149,4 +160,52 @@ public class Menu {
         //run
         panda.move(tileWherePandaSteps);
     }
+
+    private void tiredPandaSitsOnChair(){
+        System.out.println("Tired panda sits on chair");
+
+        //init
+        Logger.disable();
+
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
+        Chair chair = Logger.addAlias(new Chair(), "chair");
+
+        Panda panda = Logger.addAlias(new TiredPanda(tileUnderPanda), "Panda");
+
+        Logger.enable();
+
+        tileUnderPanda.connectNeighbor(tileWherePandaSteps);
+        tileWherePandaSteps.connectNeighbor(chair);
+
+        //run
+        panda.move(tileWherePandaSteps);
+    }
+
+    private void orangutanEscortsPandaOut(){
+        System.out.println("Orangutan escorts panda out");
+
+        //init
+        Logger.disable();
+
+        Entry entry = Logger.addAlias(new Entry(), "entry");
+        Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        Tile exit = Logger.addAlias(new Exit(), "exit");
+
+        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
+
+        Stage.getInstance().setEntry(entry);
+        Logger.enable();
+
+        tileUnderOrangutan.connectNeighbor(tileUnderPanda);
+        tileUnderOrangutan.connectNeighbor(exit);
+
+        panda.follow(orangutan);
+
+        //run
+        orangutan.move(exit); // TODO: Exit.move is not implemented correctly
+    }
+
 }

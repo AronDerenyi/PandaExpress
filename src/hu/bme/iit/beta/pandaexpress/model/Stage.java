@@ -9,6 +9,14 @@ public class Stage {
 
 	private static int score = 0;
 	private static Entry entry = null;
+	private static Stage instance;
+
+	public static Stage getInstance(){
+		Logger.startFunction(STAGE_LABEL, "getInstance");
+		if(instance == null)
+			return Logger.endFunction(instance = new Stage());
+		return Logger.endFunction(instance);
+	}
 
 	public static Entry getEntry() {
 		Logger.startFunction(STAGE_LABEL, "getEntry");
