@@ -94,6 +94,12 @@ abstract public class Animal {
 	public void move(Tile tile) {
 		Logger.startFunction(this, "move", tile);
 
+		// If the animal is dead it should not be able to move
+		if (dead) {
+			Logger.endFunction();
+			return;
+		}
+
 		Tile prevTile = this.tile;
 		boolean stepped = tile.stepOn(this);
 		if (stepped && prevTile != null && followedBy != null) {
