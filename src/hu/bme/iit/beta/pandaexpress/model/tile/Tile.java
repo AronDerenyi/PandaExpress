@@ -11,16 +11,19 @@ public class Tile {
 	private List<Tile> neighbors = new LinkedList<>();
 	private Animal animal = null;
 
+	// Constructor
 	public Tile() {
 		Logger.startFunction(this, "Tile");
 		Logger.endFunction();
 	}
-
+	
+	// return neighbor
 	public Tile[] getNeighbors() {
 		Logger.startFunction(this, "getNeighbors");
 		return Logger.endFunction(neighbors.toArray(new Tile[0]));
 	}
-
+	
+	// connects neighbor
 	public void connectNeighbor(Tile neighbor) {
 		Logger.startFunction(this, "connectNeighbor", neighbor);
 		if(neighbors.contains(neighbor)) return;
@@ -28,18 +31,21 @@ public class Tile {
 		neighbor.neighbors.add(this);
 		Logger.endFunction();
 	}
-
+	
+	// returns animal
 	public Animal getAnimal() {
 		Logger.startFunction(this, "getAnimal");
 		return Logger.endFunction(animal);
 	}
-
+	
+	// sets animal
 	public void setAnimal(Animal animal) {
 		Logger.startFunction(this, "setAnimal", animal);
 		this.animal = animal;
 		Logger.endFunction();
 	}
-
+	
+	// animal steps on this tile
 	public boolean stepOn(Animal animal) {
 		Logger.startFunction(this, "stepOn", animal);
 		if (this.animal == null) {
@@ -49,7 +55,8 @@ public class Tile {
 			return Logger.endFunction(false);
 		}
 	}
-
+	
+	// animal tries tho sit on this tile
 	public boolean sitOn(Animal animal) {
 		Logger.startFunction(this, "sitOn", animal);
 		return Logger.endFunction(false);
