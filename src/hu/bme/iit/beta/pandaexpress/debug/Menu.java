@@ -267,7 +267,7 @@ public class Menu {
         Logger.enable();
 
         tileUnderPanda.connectNeighbor(tileWherePandaSteps);
-        System.out.println("How many lives should the weak tile have? (1-20)");
+        System.out.println("How many lives should the weak tile have? (0-20)");
         Scanner reader = new Scanner(System.in);
         int lives = reader.nextInt();
         tileWherePandaSteps.setLives(lives);
