@@ -14,7 +14,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-    //menü elemek kiírása és input bekérése
+    /**
+     * menü elemek kiírása és input bekérése
+     */
     public void chooseMenuItems(){
         while(true){
             System.out.println("Choose a menu item from below: ");
