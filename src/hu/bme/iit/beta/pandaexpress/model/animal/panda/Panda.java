@@ -10,12 +10,25 @@ abstract public class Panda extends Animal implements Steppable {
 
 	private boolean exiting = false;
 
+	/**
+	 * The Panda's constructor which requires an
+	 * initial tile for the panda to move to.
+	 *
+	 * @param tile The panda's initial tile
+	 */
 	public Panda(Tile tile) {
 		Logger.startFunction(this, "Panda", tile);
 		move(tile);
 		Logger.endFunction();
 	}
 
+	/**
+	 * Overrides the animal's exit function (for further information
+	 * read the documentation of the animal's exit method).
+	 *
+	 * Starts the exiting sequence by setting the exiting flag to true.
+	 */
+	@Override
 	public void exit() {
 		Logger.startFunction(this, "exit");
 
@@ -27,6 +40,14 @@ abstract public class Panda extends Animal implements Steppable {
 		Logger.endFunction();
 	}
 
+	/**
+	 * Implements the Steppable interface's step method (for further information
+	 * read the documentation of the Steppable interface).
+	 *
+	 * This makes the panda move randomly if the panda isn't exiting, dead or
+	 * following an animal. If the panda is exiting this method makes the panda
+	 * leave the stage, increase the score and lead out it's followers.
+	 */
 	@Override
 	public void step() {
 		Logger.startFunction(this, "step");
