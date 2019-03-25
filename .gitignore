@@ -8,4 +8,6 @@
 # Intellij
 *.iml
 .idea
+.project
+.classpath
 /bin/
