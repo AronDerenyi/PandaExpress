@@ -85,11 +85,9 @@ public class Logger {
 	 * @returns the object that the function would return otherwise
 	 */
 	public static <T> T endFunction(T returnValue) {
-		if (returnValue != null) {
-			printTabs();
-			print("return " + objectToString(returnValue));
-			printNewLine();
-		}
+		printTabs();
+		print("return " + objectToString(returnValue));
+		printNewLine();
 
 		functionStack.pop();
 		printTabs();
@@ -104,7 +102,11 @@ public class Logger {
 	 * Prints on stdout, that a void function ended
 	 */
 	public static void endFunction() {
-		endFunction(null);
+		functionStack.pop();
+		printTabs();
+
+		print("}");
+		printNewLine();
 	}
 
 	/**

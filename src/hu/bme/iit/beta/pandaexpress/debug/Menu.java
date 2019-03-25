@@ -157,12 +157,10 @@ public class Menu {
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile tileWhereOrangutanSteps = Logger.addAlias(new Tile(), "tileWhereOrangutanSteps");
-        //komm diagramon ringing panda volt
         Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
         Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
 
         Logger.enable();
-        //a komm diagramon máshogy volt a sorrend? tileUnderPanda.connectNeighbor(tileUnderOrangutan);
         tileUnderOrangutan.connectNeighbor(tileUnderPanda);
         tileUnderOrangutan.connectNeighbor(tileWhereOrangutanSteps);
 
@@ -216,7 +214,6 @@ public class Menu {
 
         int[] slotMachineConfig = {0};
         SlotMachine slotMachine = Logger.addAlias(new SlotMachine(slotMachineConfig), "slotMachine");
-        //diagramon mind2 ringing
         Panda panda1 = Logger.addAlias(new RingingPanda(tileUnderPanda1), "RingingPanda");
         Panda panda2 = Logger.addAlias(new BeepingPanda(tileUnderPanda2), "FollowingPanda");
 
@@ -349,6 +346,7 @@ public class Menu {
 
         //run sequence
         orangutan.move(exit);
+        orangutan.step();
     }
 
     //menüpont 11.
@@ -376,7 +374,9 @@ public class Menu {
         panda.follow(orangutan);
 
         //run
-        orangutan.move(exit); // TODO: Exit.move is not implemented correctly
+        orangutan.move(exit);
+        orangutan.step();
+        panda.step();
     }
 
     //menüpont 12.
@@ -388,19 +388,17 @@ public class Menu {
         //initialization
         Logger.disable();
         //entry tiles and wardrobes
-        // TODO: remove constructor parameters when wardrobe is fixed
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
-        Wardrobe wardrobeIn = Logger.addAlias(new Wardrobe(tileUnderOrangutan), "wardrobeIn");
+        Wardrobe wardrobeIn = Logger.addAlias(new Wardrobe(), "wardrobeIn");
         Tile wardrobeOutEntry = Logger.addAlias(new Tile(), "wardrobeOutEntry");
-        Wardrobe wardrobeOut = Logger.addAlias(new Wardrobe(wardrobeOutEntry), "wardrobeOut");
+        Wardrobe wardrobeOut = Logger.addAlias(new Wardrobe(), "wardrobeOut");
         //orangutan
         Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
 
         Logger.enable();
         //connecting
-        // TODO: remove comment when wardrobe is fixed
-        //wardrobeIn.setEntry(tileUnderOrangutan);
-        //wardrobeOut.setEntry(wardrobeOutEntry);
+        wardrobeIn.setEntry(tileUnderOrangutan);
+        wardrobeOut.setEntry(wardrobeOutEntry);
         wardrobeIn.connect(wardrobeOut);
 
         //run sequence
@@ -417,15 +415,18 @@ public class Menu {
 
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
-        Wardrobe wardrobe = Logger.addAlias(new Wardrobe(tileUnderOrangutan), "wardrobe");
+        Wardrobe wardrobe = Logger.addAlias(new Wardrobe(), "wardrobe");
         Tile otherWardrobeEntry = Logger.addAlias(new Tile(), "otherWardrobeEntry");
-        Wardrobe otherWardrobe = Logger.addAlias(new Wardrobe(otherWardrobeEntry), "otherWardrobe");
+        Wardrobe otherWardrobe = Logger.addAlias(new Wardrobe(), "otherWardrobe");
         Tile afterWardrobeEntry = Logger.addAlias(new Tile(), "afterWardrobeEntry");
 
-        Logger.enable();
 
         Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
         Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
+
+        Logger.enable();
+        wardrobe.setEntry(tileUnderOrangutan);
+        otherWardrobe.setEntry(otherWardrobeEntry);
 
         tileUnderOrangutan.connectNeighbor(tileUnderPanda);
         otherWardrobeEntry.connectNeighbor(afterWardrobeEntry);

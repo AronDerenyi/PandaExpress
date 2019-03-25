@@ -23,6 +23,7 @@ public class Tile {
 
 	public void connectNeighbor(Tile neighbor) {
 		Logger.startFunction(this, "connectNeighbor", neighbor);
+		if(neighbors.contains(neighbor)) return;
 		neighbors.add(neighbor);
 		neighbor.neighbors.add(this);
 		Logger.endFunction();

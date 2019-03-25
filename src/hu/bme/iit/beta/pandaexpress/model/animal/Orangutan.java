@@ -114,6 +114,7 @@ public class Orangutan extends Animal implements Steppable {
 			if (stepped) {
 				Animal followedBy = getFollowedBy();
 				if (followedBy != null) {
+					followedBy.exit(); // mondjuk
 					followedBy.move(tile);
 					followedBy.unfollow();
 				}

@@ -62,6 +62,7 @@ abstract public class Panda extends Animal implements Steppable {
 			if (followedBy != null) {
 				followedBy.move(tile);
 				followedBy.unfollow();
+				followedBy.exit();
 			}
 
 			die();

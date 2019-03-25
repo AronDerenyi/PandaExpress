@@ -8,16 +8,15 @@ public class Wardrobe extends Tile {
 	private Tile entry;
 	private Wardrobe pair;
 	
-	public Wardrobe(Tile entry) {
-		Logger.startFunction(this, "Wardrobe", entry);
-		this.entry= entry;
-		this.connectNeighbor(entry);
+	public Wardrobe() {
+		Logger.startFunction(this, "Wardrobe");
 		Logger.endFunction();
 	}
 
     public void setEntry(Tile entry) {
 		Logger.startFunction(this, "setEntry", entry);
 		this.entry= entry;
+		entry.connectNeighbor(this);
 		Logger.endFunction();
 	}
 	
