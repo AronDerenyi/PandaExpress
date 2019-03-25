@@ -10,6 +10,7 @@ public abstract class Machine extends Tile implements Steppable {
 	private int[] whenToMakeNoise;
 	private int counter;
 
+	// Constructor
 	public Machine(int[] whenToMakeNoise) {
 		Logger.startFunction(this, "Machine", whenToMakeNoise);
 		this.whenToMakeNoise= whenToMakeNoise;
@@ -17,8 +18,10 @@ public abstract class Machine extends Tile implements Steppable {
 		Logger.endFunction();
 	}
 	
+	// makeNose abstract method
 	protected abstract void makeNoise();
-
+	
+	// Steppable step override - make Noise when its needed
 	@Override
 	public void step() {
 		Logger.startFunction(this, "step");

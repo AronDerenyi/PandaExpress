@@ -6,7 +6,8 @@ import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 public class WeakTile extends Tile{
 	
 	private int lives = 20;
-
+	
+	// decrease the Tile's lives and if lives=0, then the animal standing on the tile dies
     private void breakTile() {
 		Logger.startFunction(this, "breakTile");
 		if(lives > 0) {
@@ -22,13 +23,15 @@ public class WeakTile extends Tile{
 		
 		Logger.endFunction();
 	}
-
+    
+    // set lives of WeakTile
 	public void setLives(int lives){
     	Logger.startFunction(this, "setLives", lives);
 		this.lives = lives;
 		Logger.endFunction();
 	}
 	
+	// Tile stepOn override - When an animal steps on the WeakTile it calls it's breakTile method
 	@Override
 	public boolean stepOn(Animal a) {
 		
