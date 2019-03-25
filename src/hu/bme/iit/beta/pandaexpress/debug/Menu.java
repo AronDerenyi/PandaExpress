@@ -8,31 +8,34 @@ import hu.bme.iit.beta.pandaexpress.model.animal.panda.RingingPanda;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.TiredPanda;
 import hu.bme.iit.beta.pandaexpress.model.tile.*;
 import hu.bme.iit.beta.pandaexpress.model.tile.machine.SlotMachine;
+import hu.bme.iit.beta.pandaexpress.model.tile.machine.ChocolateMachine;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-
+    /**
+     * menü elemek kiírása és input bekérése
+     */
     public void chooseMenuItems(){
         while(true){
-            System.out.println("Choose a menu item form below: ");
-            System.out.println("\t0:  Quit");
+            System.out.println("Choose a menu item from below: ");
 
+            System.out.println("\t0:  Quit");
             System.out.println("\t1:  Panda steps");
-            System.out.println("\t2:  ");
+            System.out.println("\t2:  Orangutan catches a panda");
             System.out.println("\t3:  Panda follows orangutan");
-            System.out.println("\t4:  ");
+            System.out.println("\t4:  Panda follows orangutan who catches another panda");
             System.out.println("\t5:  Slot machine rings");
-            System.out.println("\t6:  ");
+            System.out.println("\t6:  Chocolate machine beeps next to a panda");
             System.out.println("\t7:  Panda steps on weak tile");
-            System.out.println("\t8:  ");
+            System.out.println("\t8:  Tired panda steps");
             System.out.println("\t9:  Tired panda sits on chair");
-            System.out.println("\t10: ");
+            System.out.println("\t10: Orangutan leaves");
             System.out.println("\t11: Orangutan escorts a panda out");
-            System.out.println("\t12: ");
+            System.out.println("\t12: Orangutan goes through a wardrobe");
             System.out.println("\t13: Orangutan walks panda through a wardrobe");
-            System.out.println("\t14: ");
+            System.out.println("\t14: Panda tries to step on a machine");
             System.out.println("\t15: Panda tries to step on orangutan");
 
             Scanner reader = new Scanner(System.in);
@@ -44,31 +47,51 @@ public class Menu {
             catch (IOException e) {}
             System.out.println();
         }
-
     }
-
+    //menüelem kiválasztása
     private void runChosenItem(int item){
         switch (item){
             case 1:
                 pandaSteps();
                 break;
+            case 2:
+                orangutanCatchesPanda();
+                break;
             case 3:
                 pandaFollowsOrangutan();
+                break;
+            case 4:
+                pandaFollowsOrangutanCatching();
                 break;
             case 5:
                 slotMachineRings();
                 break;
+            case 6:
+                chocolateMachineBeeps();
+                break;
             case 7:
                 pandaStepsOnWeakTile();
+                break;
+            case 8:
+                tiredPandaSteps();
                 break;
             case 9:
                 tiredPandaSitsOnChair();
                 break;
+            case 10:
+                orangutanLeaves();
+                break;
             case 11:
                 orangutanEscortsPandaOut();
                 break;
+            case 12:
+                orangutanGoesThroughWardrobe();
+                break;
             case 13:
                 orangutanWalksPandaThroughWardrobe();
+                break;
+            case 14:
+                pandaTriesToStepOnMachine();
                 break;
             case 15:
                 pandaTriesToStepOnOrangutan();
@@ -79,6 +102,7 @@ public class Menu {
         }
     }
 
+    //menüpont 1.
     private void pandaSteps(){
         System.out.println("Panda steps:");
 
@@ -98,6 +122,32 @@ public class Menu {
 	    panda.move(tileWherePandaSteps);
     }
 
+    //menüpont 2.
+    //az orángután egy olyan csempére lép ahol egy panda van, ezért megfogja azt
+    private void orangutanCatchesPanda(){
+        //title
+        System.out.println("Orangutan catches Panda:");
+
+        //initialization
+        Logger.disable();
+
+        //tiles
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+
+        //animals
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
+        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+
+        Logger.enable();
+        //connecting
+        tileUnderPanda.connectNeighbor(tileUnderOrangutan);
+
+        //run sequence
+        orangutan.move(tileUnderPanda);
+    }
+
+    //meenüpont 3.
     private void pandaFollowsOrangutan(){
         System.out.println("Panda follows orangutan:");
 
@@ -107,12 +157,12 @@ public class Menu {
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile tileWhereOrangutanSteps = Logger.addAlias(new Tile(), "tileWhereOrangutanSteps");
-
+        //komm diagramon ringing panda volt
         Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
         Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
 
         Logger.enable();
-
+        //a komm diagramon máshogy volt a sorrend? tileUnderPanda.connectNeighbor(tileUnderOrangutan);
         tileUnderOrangutan.connectNeighbor(tileUnderPanda);
         tileUnderOrangutan.connectNeighbor(tileWhereOrangutanSteps);
 
@@ -122,6 +172,39 @@ public class Menu {
         orangutan.move(tileWhereOrangutanSteps);
     }
 
+    //menüpont 4.
+    //azt szimulálja, hogy egy olyan orángután kap el egy pandát, akit már követ egy másik
+    private void pandaFollowsOrangutanCatching(){
+        //title
+        System.out.println("Panda follows orangutan who catches another panda:");
+
+        //initialization
+        Logger.disable();
+
+        //tiles
+        Tile tileUnderFollowingPanda = Logger.addAlias(new Tile(), "tileUnderFollowingPanda");
+        Tile tileUnderNewPanda = Logger.addAlias(new Tile(), "tileUnderNewPanda");
+        Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+
+        //animals
+        Panda followingPanda = Logger.addAlias(new BeepingPanda(tileUnderFollowingPanda), "followingPanda");
+        Panda newPanda = Logger.addAlias(new BeepingPanda(tileUnderNewPanda), "newPanda");
+        Orangutan orangutan  = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+
+        Logger.enable();
+
+        //connections
+        tileUnderFollowingPanda.connectNeighbor(tileUnderOrangutan);
+        tileUnderOrangutan.connectNeighbor(tileUnderNewPanda);
+
+        followingPanda.follow(orangutan);
+
+        //run sequence
+        orangutan.move(tileUnderNewPanda);
+
+    }
+
+    //menüpont 5.
     private void slotMachineRings(){
         System.out.println("Slot machine rings:");
 
@@ -133,7 +216,7 @@ public class Menu {
 
         int[] slotMachineConfig = {0};
         SlotMachine slotMachine = Logger.addAlias(new SlotMachine(slotMachineConfig), "slotMachine");
-
+        //diagramon mind2 ringing
         Panda panda1 = Logger.addAlias(new RingingPanda(tileUnderPanda1), "RingingPanda");
         Panda panda2 = Logger.addAlias(new BeepingPanda(tileUnderPanda2), "FollowingPanda");
 
@@ -148,6 +231,31 @@ public class Menu {
         slotMachine.step();
     }
 
+    //menüpont 6.
+    //a csokoládéautomata sípolását és a panda reakcióját teszteli: ettől ugrik egyet és az alatta levő gyenge csempe élettartama csökken
+    private void chocolateMachineBeeps(){
+        //title
+        System.out.println("Chocolate machine beeps next to a panda:");
+
+        //initialization
+        Logger.disable();
+        //chocolate machine
+        int[] chocolateMachineConfig = {0};
+        ChocolateMachine chocolateMachine = Logger.addAlias(new ChocolateMachine(chocolateMachineConfig), "chocolateMachine");
+        //tile
+        WeakTile tileUnderPanda = Logger.addAlias(new WeakTile(), "tileUnderPanda");
+        //panda
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "BeepingPanda");
+
+        Logger.enable();
+        //connecting
+        tileUnderPanda.connectNeighbor(chocolateMachine);
+
+        //run sequence
+        chocolateMachine.step();
+    }
+
+    //menüpont 7.
     private void pandaStepsOnWeakTile(){
         System.out.println("Panda steps on weak tile:");
 
@@ -171,8 +279,32 @@ public class Menu {
         panda.move(tileWherePandaSteps);
     }
 
+    //menüpont 8.
+    //a fáradt panda egy lépését mutatja be
+    private void tiredPandaSteps(){
+        //title
+        System.out.println("Tired panda steps:");
+
+        //initialization
+        Logger.disable();
+        //tiles
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
+        Tile tile3 = Logger.addAlias(new Tile(), "nearbyTile");
+        //panda
+        Panda panda = Logger.addAlias(new TiredPanda(tileUnderPanda), "tiredPanda");
+        Logger.enable();
+        //connections
+        tileUnderPanda.connectNeighbor(tileWherePandaSteps);
+        tileWherePandaSteps.connectNeighbor(tile3);
+
+        //run sequence
+        panda.move(tileWherePandaSteps);
+    }
+
+    //menüpont 9.
     private void tiredPandaSitsOnChair(){
-        System.out.println("Tired panda sits on chair");
+        System.out.println("Tired panda sits on chair:");
 
         //init
         Logger.disable();
@@ -181,7 +313,7 @@ public class Menu {
         Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
         Chair chair = Logger.addAlias(new Chair(), "chair");
 
-        Panda panda = Logger.addAlias(new TiredPanda(tileUnderPanda), "Panda");
+        Panda panda = Logger.addAlias(new TiredPanda(tileUnderPanda), "tiredPanda");
 
         Logger.enable();
 
@@ -192,8 +324,36 @@ public class Menu {
         panda.move(tileWherePandaSteps);
     }
 
+    //menüpont 10.
+    //az orángután kijáratra lépését mutatja be
+    private void orangutanLeaves(){
+        //title
+        System.out.println("Orangutan leaves:");
+
+        //initialization
+        Logger.disable();
+        //entry
+        Entry entry = Logger.addAlias(new Entry(), "entry");
+        //tiles
+        Tile tileUnderOrangutan  = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+        Tile exit = Logger.addAlias(new Exit(), "exit");
+        //orangutan
+        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
+
+        //connecting entry
+        Stage.getInstance().setEntry(entry);
+
+        Logger.enable();
+        //connecting tiles
+        tileUnderOrangutan.connectNeighbor(exit);
+
+        //run sequence
+        orangutan.move(exit);
+    }
+
+    //menüpont 11.
     private void orangutanEscortsPandaOut(){
-        System.out.println("Orangutan escorts panda out");
+        System.out.println("Orangutan escorts panda out:");
 
         //init
         Logger.disable();
@@ -219,8 +379,38 @@ public class Menu {
         orangutan.move(exit); // TODO: Exit.move is not implemented correctly
     }
 
+    //menüpont 12.
+    //az orángután szekrénybe lépését szimulálja
+    private void orangutanGoesThroughWardrobe(){
+        //title
+        System.out.println("Orangutan goes through a wardrobe:");
+
+        //initialization
+        Logger.disable();
+        //entry tiles and wardrobes
+        // TODO: remove constructor parameters when wardrobe is fixed
+        Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
+        Wardrobe wardrobeIn = Logger.addAlias(new Wardrobe(tileUnderOrangutan), "wardrobeIn");
+        Tile wardrobeOutEntry = Logger.addAlias(new Tile(), "wardrobeOutEntry");
+        Wardrobe wardrobeOut = Logger.addAlias(new Wardrobe(wardrobeOutEntry), "wardrobeOut");
+        //orangutan
+        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
+
+        Logger.enable();
+        //connecting
+        // TODO: remove comment when wardrobe is fixed
+        //wardrobeIn.setEntry(tileUnderOrangutan);
+        //wardrobeOut.setEntry(wardrobeOutEntry);
+        wardrobeIn.connect(wardrobeOut);
+
+        //run sequence
+        orangutan.move(wardrobeIn);
+
+    }
+
+    //menüpont 13.
     private void orangutanWalksPandaThroughWardrobe(){
-        System.out.println("Orangutan walks panda through wWardrobe");
+        System.out.println("Orangutan walks panda through wardrobe:");
 
         //init
         Logger.disable();
@@ -249,6 +439,32 @@ public class Menu {
         orangutan.move(afterWardrobeEntry);
     }
 
+    //menüpont 14.
+    //a panda megpróbál gépre lépni sikertelenül
+    private void pandaTriesToStepOnMachine(){
+        //title
+        System.out.println("Panda tries to step on a machine:");
+
+        //initialization
+        Logger.disable();
+        //tile
+        Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
+        //slotmachine
+        int[] slotMachineConfig = {0};
+        SlotMachine slotMachine = Logger.addAlias(new SlotMachine(slotMachineConfig), "slotMachine");
+        //panda
+        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
+
+        Logger.enable();
+
+        //connecting
+        tileUnderPanda.connectNeighbor(slotMachine);
+
+        //run sequence
+        panda.move(slotMachine);
+    }
+
+    //menüpont 15.
     private void pandaTriesToStepOnOrangutan(){
         System.out.println("Panda tries to step on orangutan:");
 
