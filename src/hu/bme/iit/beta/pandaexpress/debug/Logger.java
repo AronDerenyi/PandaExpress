@@ -53,11 +53,16 @@ public class Logger {
 	}
 
 	public static <T> T endFunction(T returnValue) {
+		if (returnValue != null) {
+			printTabs();
+			print("return " + objectToString(returnValue));
+			printNewLine();
+		}
+
 		functionStack.pop();
 		printTabs();
 
 		print("}");
-		if (returnValue != null) print(" return " + objectToString(returnValue));
 		printNewLine();
 
 		return returnValue;
