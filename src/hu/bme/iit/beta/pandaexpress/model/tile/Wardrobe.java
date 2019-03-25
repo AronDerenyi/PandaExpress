@@ -26,6 +26,7 @@ public class Wardrobe extends Tile {
 	public void connect(Wardrobe pair) {
 		Logger.startFunction(this, "connect", pair);
 		this.pair= pair;
+		this.pair.pair = this;
 		Logger.endFunction();
 	}
 	
