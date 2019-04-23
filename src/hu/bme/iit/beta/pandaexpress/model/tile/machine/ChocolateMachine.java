@@ -20,9 +20,9 @@ public class ChocolateMachine extends Machine {
 		
 		Tile[] neighbors= getNeighbors();
 		for(Tile neighbor: neighbors){
-			Animal animalOnNeighbour = neighbor.getAnimal();
-			if(animalOnNeighbour != null)
-				animalOnNeighbour.hearBeeping();
+			Animal animalOnNeighbor = neighbor.getAnimal();
+			if(animalOnNeighbor != null)
+				animalOnNeighbor.hearBeeping();
 		}
 		
 		Logger.endFunction();

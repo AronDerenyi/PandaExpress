@@ -21,9 +21,9 @@ public class SlotMachine extends Machine {
 		Tile[] neighbors= getNeighbors();
 
 		for(Tile neighbor: neighbors){
-			Animal animalOnNeighbour = neighbor.getAnimal();
-			if(animalOnNeighbour != null)
-				animalOnNeighbour.hearRinging();
+			Animal animalOnNeighbor = neighbor.getAnimal();
+			if(animalOnNeighbor != null)
+				animalOnNeighbor.hearRinging();
 		}
 		
 		Logger.endFunction();
