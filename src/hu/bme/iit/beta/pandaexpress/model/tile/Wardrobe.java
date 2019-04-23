@@ -8,12 +8,6 @@ public class Wardrobe extends Tile {
 	private Tile entry;
 	private Wardrobe pair;
 	
-	// Constructor
-	public Wardrobe() {
-		Logger.startFunction(this, "Wardrobe");
-		Logger.endFunction();
-	}
-	
 	// This method sets the entry of a wardrobe, and connects them
     public void setEntry(Tile entry) {
 		Logger.startFunction(this, "setEntry", entry);
@@ -44,6 +38,4 @@ public class Wardrobe extends Tile {
 		Logger.startFunction(this, "getAnimal");
 		return Logger.endFunction(pair.entry.getAnimal());
 	}
-	
-
 }

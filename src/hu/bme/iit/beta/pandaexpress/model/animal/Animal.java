@@ -13,14 +13,6 @@ abstract public class Animal {
 	private Animal followedBy = null;
 
 	/**
-	 * The animal's constructor (this constructor does nothing)
-	 */
-	public Animal() {
-		Logger.startFunction(this, "Animal");
-		Logger.endFunction();
-	}
-
-	/**
 	 * Returns the "dead" flag of the animal which is if true,
 	 * then the animal is considered dead.
 	 *
@@ -139,7 +131,6 @@ abstract public class Animal {
 	 */
 	public boolean follow(Animal animal) {
 		Logger.startFunction(this, "follow", animal);
-
 		unfollow();
 		if (animal.followedBy != null) {
 			animal.followedBy.unfollow();

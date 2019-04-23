@@ -11,18 +11,6 @@ public class Orangutan extends Animal implements Steppable {
 	private boolean exiting = false;
 
 	/**
-	 * The Orangutan's constructor which requires an
-	 * initial tile for the orangutan to move to.
-	 *
-	 * @param tile The orangutan's initial tile
-	 */
-	public Orangutan(Tile tile) {
-		Logger.startFunction(this, "Orangutan", tile);
-		move(tile);
-		Logger.endFunction();
-	}
-
-	/**
 	 * Overrides the animal's move function (for further information
 	 * read the documentation of the animal's move method).
 	 *

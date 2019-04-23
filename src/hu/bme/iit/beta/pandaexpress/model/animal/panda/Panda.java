@@ -11,18 +11,6 @@ abstract public class Panda extends Animal implements Steppable {
 	private boolean exiting = false;
 
 	/**
-	 * The Panda's constructor which requires an
-	 * initial tile for the panda to move to.
-	 *
-	 * @param tile The panda's initial tile
-	 */
-	public Panda(Tile tile) {
-		Logger.startFunction(this, "Panda", tile);
-		move(tile);
-		Logger.endFunction();
-	}
-
-	/**
 	 * Overrides the animal's exit function (for further information
 	 * read the documentation of the animal's exit method).
 	 *
@@ -61,8 +49,8 @@ abstract public class Panda extends Animal implements Steppable {
 			leaveTile();
 			if (followedBy != null) {
 				followedBy.move(tile);
-				followedBy.unfollow();
 				followedBy.exit();
+				followedBy.unfollow();
 			}
 
 			die();
