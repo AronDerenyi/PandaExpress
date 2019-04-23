@@ -1,12 +1,15 @@
 package hu.bme.iit.beta.pandaexpress.model.animal;
 
-import hu.bme.iit.beta.pandaexpress.debug.Logger;
+
 import hu.bme.iit.beta.pandaexpress.model.Stage;
 import hu.bme.iit.beta.pandaexpress.model.Steppable;
 import hu.bme.iit.beta.pandaexpress.model.tile.Entry;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class Orangutan extends Animal implements Steppable {
+	
+	private int frozen;
+	
 	/**
 	 * Overrides the animal's move function (for further information
 	 * read the documentation of the animal's move method).
@@ -19,11 +22,9 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public void move(Tile tile) {
-		Logger.startFunction(this, "move", tile);
 
 		// If the orangutan is exiting, it should not be able to move
 		if (exiting) {
-			Logger.endFunction();
 			return;
 		}
 
@@ -31,7 +32,7 @@ public class Orangutan extends Animal implements Steppable {
 		Animal animal = tile.getAnimal();
 		Animal prevFollowedBy = getFollowedBy();
 		boolean grabbed = false;
-		if (animal != null) {
+		if (animal != null && frozen == 0) {
 			grabbed = animal.follow(this);
 			if (grabbed) {
 				animal.release();
@@ -47,7 +48,6 @@ public class Orangutan extends Animal implements Steppable {
 			prevFollowedBy.follow(getFollowedBy());
 		}
 
-		Logger.endFunction();
 	}
 
 	/**
@@ -61,8 +61,7 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public boolean follow(Animal animal) {
-		Logger.startFunction(this, "follow", animal);
-		return Logger.endFunction(false);
+		return false;
 	}
 
 	/**
@@ -73,9 +72,7 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public void exit() {
-		Logger.startFunction(this, "exit");
 		exiting = true;
-		Logger.endFunction();
 	}
 
 	/**
@@ -87,7 +84,6 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public void step() {
-		Logger.startFunction(this, "step");
 
 		if (exiting) {
 			// Tries to move to the entry
@@ -107,6 +103,24 @@ public class Orangutan extends Animal implements Steppable {
 			}
 		}
 
-		Logger.endFunction();
+	}
+	
+	@Override
+	public void replaceTile(Tile tile) {
+		
+		if(frozen == 0) {
+			super.replaceTile(tile);
+		} else {
+			frozen--;
+		}
+
+	}
+	
+	public int getFrozen() {
+		return frozen;
+	}
+	
+	public void setFrozen(int c) {
+		frozen= c;
 	}
 }
