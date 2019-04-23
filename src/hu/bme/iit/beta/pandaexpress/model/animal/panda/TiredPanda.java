@@ -4,20 +4,23 @@ import hu.bme.iit.beta.pandaexpress.debug.Logger;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
+/**
+ * Tired Panda class
+ * Represents the Pandas who are tired and will sit on an empty chair when are next to one.
+ */
 public class TiredPanda extends Panda {
 
+	/**
+	 * Whether the panda is sitting or not
+	 */
 	private boolean sitting = false;
 
 	/**
-	 * The TiredPanda's constructor which requires an
-	 * initial tile for the panda to move to.
-	 *
-	 * @param tile The panda's initial tile
+	 * The TiredPanda's constructor
+	 * Calls the constructor of the ancestor class, the Panda. Otherwise does nothing.
 	 */
-	public TiredPanda(Tile tile) {
-		super(tile);
-		Logger.startFunction(this, "TiredPanda", tile);
-		Logger.endFunction();
+	public TiredPanda() {
+		super();
 	}
 
 	/**
@@ -30,19 +33,16 @@ public class TiredPanda extends Panda {
 	 *
 	 * If the panda is sitting, it's unable to move.
 	 *
-	 * @param tile The tile where the panda should move
+	 * @param where The tile where the panda should move
 	 */
 	@Override
-	public void move(Tile tile) {
-		Logger.startFunction(this, "move", tile);
-
+	public void move(Tile where) {
 		// If the panda is sitting it should not be able to move
 		if (sitting) {
-			Logger.endFunction();
 			return;
 		}
 
-		super.move(tile);
+		super.move(where);
 
 		for (Tile neighbor : getTile().getNeighbors()) {
 			boolean sit = neighbor.sitOn(this);
@@ -53,8 +53,6 @@ public class TiredPanda extends Panda {
 				break;
 			}
 		}
-
-		Logger.endFunction();
 	}
 
 	/**
@@ -69,19 +67,17 @@ public class TiredPanda extends Panda {
 	@Override
 	public boolean follow(Animal animal) {
 		Logger.startFunction(this, "follow", animal);
-		return Logger.endFunction(!sitting && super.follow(animal));
+		return !sitting && super.follow(animal);
 	}
 
 	/**
-	 * Overrides the Panda's follow function (for further information
-	 * read the documentation of the Panda's follow method).
+	 * Overrides the Panda's step function (for further information
+	 * read the documentation of the Panda's step method).
 	 *
 	 * Removes the panda's ability to handle the step event if it's sitting.
 	 */
 	@Override
 	public void step() {
-		Logger.startFunction(this, "step");
 		if (!sitting) super.step();
-		Logger.endFunction();
 	}
 }

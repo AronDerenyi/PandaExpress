@@ -1,39 +1,36 @@
 package hu.bme.iit.beta.pandaexpress.model.tile.machine;
 
-import hu.bme.iit.beta.pandaexpress.debug.Logger;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
+/**
+ * Slot Machine class
+ * Represents the tiles that has a slot machine on them
+ * Extends the Machine abstract class
+ */
 public class SlotMachine extends Machine {
-	
-	// Constructor
-	public SlotMachine(int[] whenToMakeNoise) {
-		super(whenToMakeNoise);
-		Logger.startFunction(this, "SlotMachine", whenToMakeNoise);
-		Logger.endFunction();
-	}
-	
-	
-	// Tile stepOn override - return false, because animals can't step on a slot machine
-	@Override
-	public boolean stepOn(Animal a) {
-		Logger.startFunction(this, "stepOn", a);
-		return Logger.endFunction(false);
+
+	/**
+	 * Constructor
+	 * Calls the constructor of its ancestor class, the Machine
+	 */
+	public SlotMachine() {
+		super();
 	}
 
-	// Slot machine rings
+	/**
+	 * Machine makeNoise override
+	 * The slot machine rings
+	 * Tells the animals who are standing on the surrounding tiles that a ringing has happened
+	 */
 	@Override
 	protected void makeNoise() {
-		Logger.startFunction(this, "makeNoise");
-		
-		Tile[] neighbors= getNeighbors();
+		Tile[] neighbors = getNeighbors();
 
 		for(Tile neighbor: neighbors){
 			Animal animalOnNeighbour = neighbor.getAnimal();
 			if(animalOnNeighbour != null)
 				animalOnNeighbour.hearRinging();
 		}
-		
-		Logger.endFunction();
 	}
 }
