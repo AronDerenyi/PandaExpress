@@ -7,9 +7,6 @@ import hu.bme.iit.beta.pandaexpress.model.tile.Entry;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class Orangutan extends Animal implements Steppable {
-
-	private boolean exiting = false;
-
 	/**
 	 * Overrides the animal's move function (for further information
 	 * read the documentation of the animal's move method).
