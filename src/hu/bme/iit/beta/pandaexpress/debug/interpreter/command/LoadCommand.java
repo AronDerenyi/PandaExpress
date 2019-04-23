@@ -1,10 +1,9 @@
 package hu.bme.iit.beta.pandaexpress.debug.interpreter.command;
 
 import hu.bme.iit.beta.pandaexpress.debug.interpreter.Environment;
+import hu.bme.iit.beta.pandaexpress.debug.interpreter.Interpreter;
 
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class LoadCommand implements Command {
 
@@ -23,8 +22,12 @@ public class LoadCommand implements Command {
 			return;
 		}
 
-		writer.println("Loading and running file: \"" + arguments[1] + "\"");
-
-		writer.flush();
+		try {
+			InputStream fileInput = new FileInputStream(arguments[1]);
+			new Interpreter(fileInput, output, environment);
+		} catch (Exception e) {
+			writer.println("Failed to load and run \"" + arguments[1] + "\": " + e.getMessage());
+			writer.flush();
+		}
 	}
 }
