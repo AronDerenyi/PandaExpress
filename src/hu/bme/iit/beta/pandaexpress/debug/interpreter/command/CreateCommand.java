@@ -60,7 +60,7 @@ public class CreateCommand implements Command {
 			Object object = MODEL_SUPPLIERS.get(type).get();
 			environment.add(name, object);
 		} catch (Exception e) {
-			writer.println("Failed to create: \"" + arguments[3] + "\"");
+			writer.println("Failed to create \"" + arguments[2] + "\": " + e.getMessage());
 			writer.flush();
 		}
 	}
