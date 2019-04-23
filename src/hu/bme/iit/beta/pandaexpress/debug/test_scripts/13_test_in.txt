@@ -1,0 +1,14 @@
+reset
+create BeepingPanda p
+create WeakTile t
+create ChocolateMachine cm
+run t setLives 1
+run t connectNeighbor cm
+run p replaceTile t
+run cm makeNoise
+print a gyenge csempe elete az ugras utan
+run t getLives
+print ki van a torott csempen
+run t getAnimal
+print a panda meghalt
+run p isDead

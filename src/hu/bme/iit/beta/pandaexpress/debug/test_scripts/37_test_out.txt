@@ -1,0 +1,10 @@
+true
+true
+Az orángután pozíciója a pandához lépés előtt:
+t2
+Az orángután pozíciója a pandához (t1-re) lépés után:
+t2
+Az új pandát nem tudta megfogni, tehát az nem követ senkit:
+null
+Le van-e még fagyva:
+2

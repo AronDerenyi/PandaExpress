@@ -1,0 +1,12 @@
+reset
+create Orangutan o
+create Tile t
+create Entry en
+create Exit ex
+run t connectNeighbor ex
+run o replaceTile t
+run Stage setEntry en
+run o move ex
+run o step
+print az orangutan erre a csempere kerult
+run o getTile

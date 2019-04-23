@@ -22,12 +22,10 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public void move(Tile tile) {
-
 		// If the orangutan is exiting, it should not be able to move
 		if (exiting) {
 			return;
 		}
-
 		// Grab the animal on the tile the Orangutan tries to step on
 		Animal animal = tile.getAnimal();
 		Animal prevFollowedBy = getFollowedBy();

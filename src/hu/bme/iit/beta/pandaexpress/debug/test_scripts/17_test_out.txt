@@ -1,0 +1,4 @@
+a csempe eltort e
+0
+az orangutan meghalt e
+true

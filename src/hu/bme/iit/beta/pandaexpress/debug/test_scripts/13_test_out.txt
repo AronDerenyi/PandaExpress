@@ -1,0 +1,6 @@
+a gyenge csempe elete az ugras utan
+0
+ki van a torott csempen
+null
+a panda meghalt
+true

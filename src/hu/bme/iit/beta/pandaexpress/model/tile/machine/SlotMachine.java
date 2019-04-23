@@ -24,7 +24,7 @@ public class SlotMachine extends Machine {
 	 * Tells the animals who are standing on the surrounding tiles that a ringing has happened
 	 */
 	@Override
-	protected void makeNoise() {
+	public void makeNoise() {
 		Tile[] neighbors = getNeighbors();
 
 		for(Tile neighbor: neighbors){

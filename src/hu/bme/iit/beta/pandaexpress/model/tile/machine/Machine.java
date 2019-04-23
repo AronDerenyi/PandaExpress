@@ -51,7 +51,7 @@ public abstract class Machine extends Tile implements Steppable {
 	/**
 	 * Abstract method to make a noise
 	 */
-	protected abstract void makeNoise();
+	public abstract void makeNoise();
 
 	/**
 	 * Steppable step override

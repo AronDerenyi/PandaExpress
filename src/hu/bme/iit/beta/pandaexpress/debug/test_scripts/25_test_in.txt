@@ -1,0 +1,28 @@
+reset
+create Orangutan o
+create BeepingPanda p
+create Tile t1
+create Tile t2
+create Wardrobe w1
+create Wardrobe w2
+create Tile t3
+create Tile t4
+run w1 setEntry t1
+run w2 setEntry t3
+run w1 connect w2
+run t1 connectNeighbor t2
+run t3 connectNeighbor t4
+run o move t1
+run p move t2
+run p follow o
+run o move w1
+print az orangutan alatti mezo:
+run o getTile
+print a panda alatti mezo
+run p getTile
+print masodik lepes
+run o move t4
+print az orangutan alatti mezo:
+run o getTile
+print a panda alatti mezo
+run p getTile

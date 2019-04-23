@@ -1,0 +1,13 @@
+reset
+create Orangutan o1
+create Orangutan o2
+create Tile t1
+create Tile t2
+run t1 connectNeighbor t2
+run o1 replaceTile t1
+run o2 replaceTile t2
+run o1 move t2
+print elso orangutan helyzete a lepes utan
+run o1 getTile
+print masodik orangutan helyzete a lepes utan
+run o2 getTile

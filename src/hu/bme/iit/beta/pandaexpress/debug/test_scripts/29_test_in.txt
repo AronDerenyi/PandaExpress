@@ -1,0 +1,9 @@
+reset
+create TiredPanda p
+create Tile t
+create Exit e
+run t connectNeighbor e
+run p replaceTile t
+run p move e
+print a panda helyzet a lepes kiserlet utan
+run p getTile

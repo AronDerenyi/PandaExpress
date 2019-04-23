@@ -1,0 +1,12 @@
+reset
+create Orangutan o
+create Tile t1
+create WeakTile t2w
+run t1 connectNeighbor t2w
+run o replaceTile t1
+run t2w setLives 1
+run o move t2w
+print a csempe eltort e
+run t2w getLives
+print az orangutan meghalt e
+run o isDead

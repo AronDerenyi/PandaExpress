@@ -1,0 +1,10 @@
+true
+az orangutan alatti mezo:
+t3
+a panda alatti mezo
+t1
+masodik lepes
+az orangutan alatti mezo:
+t4
+a panda alatti mezo
+t3

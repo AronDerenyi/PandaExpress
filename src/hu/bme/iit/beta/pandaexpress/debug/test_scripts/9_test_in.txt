@@ -1,0 +1,14 @@
+reset
+create Orangutan o
+create RingingPanda p
+create Tile t1
+create Tile t2
+create SlotMachine sm
+run t1 connectNeighbor t2
+run t2 connectNeighbor sm
+run o replaceTile t1
+run p replaceTile t2
+run p follow o
+run sm makeNoise
+print ki koveti a pandat
+run p getFollowedBy

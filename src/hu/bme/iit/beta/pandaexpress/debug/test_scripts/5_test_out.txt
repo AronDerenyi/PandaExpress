@@ -1,0 +1,8 @@
+az orángutan alatti mezo:
+tp
+az orangutant koveto objektum:
+p
+az panda alatti mezo:
+to
+a panda altal kovetett objektum:
+o

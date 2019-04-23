@@ -13,7 +13,7 @@ public class ChocolateMachine extends Machine {
 
 	// Chocolate machine beeps
 	@Override
-	protected void makeNoise() {
+	public void makeNoise() {
 		Tile[] neighbors= getNeighbors();
 		for(Tile neighbor: neighbors){
 			Animal animalOnNeighbor = neighbor.getAnimal();

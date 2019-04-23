@@ -32,12 +32,12 @@ public class Wardrobe extends Tile {
 	// to the other Wardrobe's entry
 	@Override
 	public boolean stepOn(Animal a) {
-		return pair.entry.stepOn(a);
+    	return pair.entry.stepOn(a);
 	}
 	
 	// Tile getAnimal override - returns the animal who is standing on the Wardrobe's pair's entry
 	@Override
 	public Animal getAnimal() {
-		return pair.entry.getAnimal();
+    	return pair.entry.getAnimal();
 	}
 }

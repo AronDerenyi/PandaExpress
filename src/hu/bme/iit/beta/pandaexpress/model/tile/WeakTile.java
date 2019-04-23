@@ -40,6 +40,7 @@ public class WeakTile extends Tile{
 			
 			return true;
 		} else {
+			breakTile();
 			return false;
 		}
 	}

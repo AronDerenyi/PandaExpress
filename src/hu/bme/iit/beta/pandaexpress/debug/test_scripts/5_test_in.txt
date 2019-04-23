@@ -1,0 +1,17 @@
+reset
+create Orangutan o
+create BeepingPanda p
+create Tile to
+create Tile tp
+run to connectNeighbor tp
+run o move to
+run p move tp
+run o move tp
+print az orángutan alatti mezo:
+run o getTile
+print az orangutant koveto objektum:
+run o getFollowedBy
+print az panda alatti mezo:
+run p getTile
+print a panda altal kovetett objektum:
+run p getFollowing

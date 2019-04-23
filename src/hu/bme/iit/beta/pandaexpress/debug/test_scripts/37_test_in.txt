@@ -1,0 +1,28 @@
+reset
+create Orangutan o
+create BeepingPanda p1
+create RingingPanda p2
+create BeepingPanda newPanda
+create Tile t1
+create Tile t2
+create Tile t3
+create Tile t4
+run t1 connectNeighbor t2
+run t2 connectNeighbor t3
+run t3 connectNeighbor t4
+run o replaceTile t2
+run p1 replaceTile t3
+run p2 replaceTile t4
+run newPanda replaceTile t1
+run p1 follow o
+run p2 follow p1
+run o setFrozen 2
+print Az orángután pozíciója a pandához lépés előtt:
+run o getTile
+run o move t1
+print Az orángután pozíciója a pandához (t1-re) lépés után:
+run o getTile
+print Az új pandát nem tudta megfogni, tehát az nem követ senkit:
+run newPanda getFollowing
+print Le van-e még fagyva:
+run o getFrozen
