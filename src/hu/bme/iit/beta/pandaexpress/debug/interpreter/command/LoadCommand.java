@@ -26,7 +26,8 @@ public class LoadCommand implements Command {
 			InputStream fileInput = new FileInputStream(arguments[1]);
 			new Interpreter(fileInput, output, environment);
 		} catch (Exception e) {
-			writer.println("Failed to load and run \"" + arguments[1] + "\": " + e.getMessage());
+			writer.println("Failed to load and run \"" + arguments[1] + "\": " +
+					e.getClass().getSimpleName() + " - " + e.getMessage());
 			writer.flush();
 		}
 	}

@@ -26,7 +26,8 @@ public class ResetCommand implements Command {
 		try {
 			environment.clear();
 		} catch (Exception e) {
-			writer.println("Failed to reset the environment: " + e.getMessage());
+			writer.println("Failed to reset the environment: " +
+					e.getClass().getSimpleName() + " - " + e.getMessage());
 			writer.flush();
 		}
 	}
