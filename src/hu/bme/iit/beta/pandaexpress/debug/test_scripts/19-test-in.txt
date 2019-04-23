@@ -1,0 +1,14 @@
+create TiredPanda p
+create Tile t1
+create Tile t2
+create Chair ch
+run t1 connectNeighbor t2
+run t2 connectNeighbor ch
+run ch replaceTile t1
+run p move t2
+print A panda helye a mozgást követően
+run p getTile
+print Ül a panda?
+run p isSitting
+print A fotelben ki ül?
+run ch getAnimal

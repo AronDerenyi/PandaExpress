@@ -1,0 +1,9 @@
+true
+lefagyott-e az allo orangutan:
+0
+a mozgo orangutan helye
+t2
+a panda helye
+t3
+a mozgo orangutan kovetoje
+p

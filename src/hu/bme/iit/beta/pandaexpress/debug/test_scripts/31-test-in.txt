@@ -1,0 +1,13 @@
+create Orangutan o
+create BeepingPanda p
+create Tile t1
+create Tile t2
+run t1 connectNeighbor t2
+run o replaceTile t1
+run p replaceTile t2
+run p follow o
+run o release
+print Követi-e még az orángutánt egy panda?
+run o getFollowedBy
+print Követi-e a panda az orángutánt?
+run p getFollowing
