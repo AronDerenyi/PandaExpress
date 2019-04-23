@@ -1,7 +1,6 @@
 package hu.bme.iit.beta.pandaexpress.debug.interpreter;
 
-import hu.bme.iit.beta.pandaexpress.debug.interpreter.command.Command;
-import hu.bme.iit.beta.pandaexpress.debug.interpreter.command.PrintCommand;
+import hu.bme.iit.beta.pandaexpress.debug.interpreter.command.*;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -11,7 +10,12 @@ import java.util.Objects;
 public class Interpreter {
 
 	private static Command[] COMMANDS = {
-			new PrintCommand()
+			new LoadCommand(),
+			new TestCommand(),
+			new ResetCommand(),
+			new PrintCommand(),
+			new CreateCommand(),
+			new RunCommand()
 	};
 
 	private static String[] toArgumentArray(String arguments) {
