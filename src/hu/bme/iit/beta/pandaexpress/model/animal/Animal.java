@@ -1,14 +1,28 @@
 package hu.bme.iit.beta.pandaexpress.model.animal;
 
 import hu.bme.iit.beta.pandaexpress.debug.Logger;
+import hu.bme.iit.beta.pandaexpress.model.Steppable;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
-abstract public class Animal {
-
+abstract public class Animal implements Steppable {
+	/**
+	 * A flag that stores whether the animal is dead
+	 */
 	private boolean dead = false;
 
+	/**
+	 * A flag that stores whether the animal is in "exiting mode"
+	 */
+	protected boolean exiting = false;
+
+	/**
+	 * The tile that the animal is standing on
+	 */
 	private Tile tile = null;
 
+	/**
+	 * Animal behind and in front of the current animal
+	 */
 	private Animal following = null;
 	private Animal followedBy = null;
 
@@ -19,8 +33,15 @@ abstract public class Animal {
 	 * @return The dead flag
 	 */
 	public boolean isDead() {
-		Logger.startFunction(this, "isDead");
-		return Logger.endFunction(dead);
+		return dead;
+	}
+
+	/**
+	 * Getter for exiting property
+	 * @return exiting flag
+	 */
+	public boolean isExiting(){
+		return exiting;
 	}
 
 	/**
@@ -28,14 +49,10 @@ abstract public class Animal {
 	 * and releases every related animal and leaves it's current tile.
 	 */
 	public void die() {
-		Logger.startFunction(this, "die");
-
 		unfollow();
 		release();
 		leaveTile();
 		dead = true;
-
-		Logger.endFunction();
 	}
 
 	/**
@@ -44,21 +61,16 @@ abstract public class Animal {
 	 * @return The current tile
 	 */
 	public Tile getTile() {
-		Logger.startFunction(this, "getTile");
-		return Logger.endFunction(tile);
+		return tile;
 	}
 
 	/**
 	 * Makes the animal leave it's current tile.
 	 */
 	public void leaveTile() {
-		Logger.startFunction(this, "leaveTile");
-
 		if (tile != null) {
 			tile.setAnimal(null);
 		}
-
-		Logger.endFunction();
 	}
 
 	/**
@@ -67,13 +79,9 @@ abstract public class Animal {
 	 * @param tile The new current tile
 	 */
 	public void replaceTile(Tile tile) {
-		Logger.startFunction(this, "replaceTile", tile);
-
 		leaveTile();
 		tile.setAnimal(this);
 		this.tile = tile;
-
-		Logger.endFunction();
 	}
 
 	/**
@@ -84,8 +92,6 @@ abstract public class Animal {
 	 * @param tile The tile where the animal should move
 	 */
 	public void move(Tile tile) {
-		Logger.startFunction(this, "move", tile);
-
 		// If the animal is dead it should not be able to move
 		if (dead) {
 			Logger.endFunction();
@@ -97,8 +103,6 @@ abstract public class Animal {
 		if (stepped && prevTile != null && followedBy != null) {
 			followedBy.move(prevTile);
 		}
-
-		Logger.endFunction();
 	}
 
 	/**
@@ -107,8 +111,7 @@ abstract public class Animal {
 	 * @return The animal which this animal is following.
 	 */
 	public Animal getFollowing() {
-		Logger.startFunction(this, "getFollowing");
-		return Logger.endFunction(following);
+		return following;
 	}
 
 	/**
@@ -117,8 +120,7 @@ abstract public class Animal {
 	 * @return The animal following this animal
 	 */
 	public Animal getFollowedBy() {
-		Logger.startFunction(this, "getFollowedBy");
-		return Logger.endFunction(followedBy);
+		return followedBy;
 	}
 
 	/**
@@ -130,7 +132,6 @@ abstract public class Animal {
 	 * @return Whether or not this animal could follow the given animal
 	 */
 	public boolean follow(Animal animal) {
-		Logger.startFunction(this, "follow", animal);
 		unfollow();
 		if (animal.followedBy != null) {
 			animal.followedBy.unfollow();
@@ -139,21 +140,17 @@ abstract public class Animal {
 		following = animal;
 		following.followedBy = this;
 
-		return Logger.endFunction(true);
+		return true;
 	}
 
 	/**
 	 * Makes the animal stop following the animal it is currently following.
 	 */
 	public void unfollow() {
-		Logger.startFunction(this, "unfollow");
-
 		if (following != null) {
 			following.followedBy = null;
 			following = null;
 		}
-
-		Logger.endFunction();
 	}
 
 	/**
@@ -161,39 +158,26 @@ abstract public class Animal {
 	 * tells it to release it's followers too.
 	 */
 	public void release() {
-		Logger.startFunction(this, "release");
-
 		if (followedBy != null) {
 			followedBy.release();
 			followedBy.unfollow();
 		}
-
-		Logger.endFunction();
 	}
 
 	/**
 	 * This tells the animal that it should hear a beeping sound.
 	 */
-	public void hearBeeping() {
-		Logger.startFunction(this, "hearBeeping");
-		Logger.endFunction();
-	}
+	public void hearBeeping(){ }
 
 	/**
 	 * This tells the animal that it should hear a ringing sound.
 	 */
-	public void hearRinging() {
-		Logger.startFunction(this, "hearRinging");
-		Logger.endFunction();
-	}
+	public void hearRinging() { }
 
 	/**
 	 * Tells the animal that it should exit or at least start the
 	 * exiting sequence (this mostly happens if the animal steps on
 	 * an exit tile).
 	 */
-	public void exit() {
-		Logger.startFunction(this, "exit");
-		Logger.endFunction();
-	}
+	public abstract void exit();
 }
