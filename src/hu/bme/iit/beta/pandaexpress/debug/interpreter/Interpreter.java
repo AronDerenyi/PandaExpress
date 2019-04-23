@@ -20,24 +20,29 @@ public class Interpreter {
 
 		arguments = arguments.trim();
 		while (!arguments.isEmpty()) {
-			String argument;
+			int argumentStart;
+			int argumentTerminator;
 			int nextArgument;
 
 			if (arguments.charAt(0) == '\'') {
-				int nextQuotes = arguments.indexOf('\'');
-				argument = arguments.substring(1, nextQuotes);
-				nextArgument = nextQuotes + 1;
+				argumentStart = 1;
+				argumentTerminator = arguments.indexOf('\'', 1);
 			} else if (arguments.charAt(0) == '\"') {
-				int nextQuotes = arguments.indexOf('\"');
-				argument = arguments.substring(1, nextQuotes);
-				nextArgument = nextQuotes + 1;
+				argumentStart = 1;
+				argumentTerminator = arguments.indexOf('\"', 1);
 			} else {
-				int nextSpace = arguments.indexOf(' ');
-				argument = arguments.substring(nextSpace);
-				nextArgument = nextSpace + 1;
+				argumentStart = 0;
+				argumentTerminator = arguments.indexOf(' ');
 			}
 
-			argumentList.add(argument);
+			if (argumentTerminator == -1) {
+				argumentTerminator = arguments.length();
+				nextArgument = arguments.length();
+			} else {
+				nextArgument = argumentTerminator + 1;
+			}
+
+			argumentList.add(arguments.substring(argumentStart, argumentTerminator));
 			arguments = arguments.substring(nextArgument).trim();
 		}
 
