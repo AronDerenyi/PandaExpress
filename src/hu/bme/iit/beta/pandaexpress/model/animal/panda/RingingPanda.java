@@ -1,7 +1,5 @@
 package hu.bme.iit.beta.pandaexpress.model.animal.panda;
 
-import hu.bme.iit.beta.pandaexpress.debug.Logger;
-import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class RingingPanda extends Panda {
 
@@ -13,9 +11,7 @@ public class RingingPanda extends Panda {
 	 */
 	@Override
 	public void hearRinging() {
-		Logger.startFunction(this, "hearRinging");
 		unfollow();
 		release();
-		Logger.endFunction();
 	}
 }
