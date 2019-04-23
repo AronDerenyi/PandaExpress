@@ -131,7 +131,6 @@ abstract public class Animal {
 	 */
 	public boolean follow(Animal animal) {
 		Logger.startFunction(this, "follow", animal);
-
 		unfollow();
 		if (animal.followedBy != null) {
 			animal.followedBy.unfollow();

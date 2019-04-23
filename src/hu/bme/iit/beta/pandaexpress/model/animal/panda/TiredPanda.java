@@ -12,7 +12,7 @@ public class TiredPanda extends Panda {
 	 * Overrides the animal's move function (for further information
 	 * read the documentation of the animal's move method).
 	 *
-	 * This method also makes the panda try to sit on every neighbouring tile.
+	 * This method also makes the panda try to sit on every neighboring tile.
 	 * If it could sit down, it releases all of it's relations to
 	 * other animals and sets the sitting flag to true.
 	 *
