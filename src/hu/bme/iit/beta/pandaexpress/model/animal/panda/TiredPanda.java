@@ -1,6 +1,5 @@
 package hu.bme.iit.beta.pandaexpress.model.animal.panda;
 
-import hu.bme.iit.beta.pandaexpress.debug.Logger;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
@@ -66,7 +65,6 @@ public class TiredPanda extends Panda {
 	 */
 	@Override
 	public boolean follow(Animal animal) {
-		Logger.startFunction(this, "follow", animal);
 		return !sitting && super.follow(animal);
 	}
 
