@@ -14,9 +14,9 @@ public class PrintCommand implements Command {
 	}
 
 	@Override
-	public void call(String params, OutputStream output, Environment environment) {
+	public void call(String[] arguments, OutputStream output, Environment environment) {
 		PrintWriter writer = new PrintWriter(new OutputStreamWriter(output));
-		writer.println(params);
+		writer.println(arguments[0]);
 		writer.flush();
 	}
 }
