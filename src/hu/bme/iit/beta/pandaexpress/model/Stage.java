@@ -1,14 +1,10 @@
 package hu.bme.iit.beta.pandaexpress.model;
 
-import hu.bme.iit.beta.pandaexpress.debug.Logger;
+
 import hu.bme.iit.beta.pandaexpress.model.tile.Entry;
 
 public class Stage {
 
-	/**
-	 * Label for Logger
-	 */
-	private static final Object STAGE_LABEL = "Stage";
 
 	/**
 	 * Gained score during the game
@@ -23,6 +19,8 @@ public class Stage {
 	 * Static instance for singleton behavior
 	 */
 	private static Stage instance;
+	
+	private Stage() {}
 
 	/**
 	 * Singleton behaviour
@@ -30,10 +28,9 @@ public class Stage {
 	 * @return the created instance
 	 */
 	public static Stage getInstance(){
-		Logger.startFunction(STAGE_LABEL, "getInstance");
 		if(instance == null)
-			return Logger.endFunction(instance = new Stage());
-		return Logger.endFunction(instance);
+			return instance = new Stage();
+		return instance;
 	}
 
 	/**
@@ -41,8 +38,7 @@ public class Stage {
 	 * @return entry of the game
 	 */
 	public static Entry getEntry() {
-		Logger.startFunction(STAGE_LABEL, "getEntry");
-		return Logger.endFunction(entry);
+		return entry;
 	}
 
 	/**
@@ -50,9 +46,7 @@ public class Stage {
 	 * @param entry
 	 */
 	public static void setEntry(Entry entry) {
-		Logger.startFunction(STAGE_LABEL, "setEntry", entry);
 		Stage.entry = entry;
-		Logger.endFunction();
 	}
 
 	/**
@@ -60,8 +54,14 @@ public class Stage {
 	 * @param amount how much the game score shall be incremented
 	 */
 	public static void score(int amount) {
-		Logger.startFunction(STAGE_LABEL, "score", amount);
 		score += amount;
-		Logger.endFunction();
+	}
+	
+	public static int getScore() {
+		return score;
+	}
+	
+	public static void load(int level) {
+		
 	}
 }
