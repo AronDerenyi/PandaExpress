@@ -1,0 +1,4 @@
+A törékeny csempe élettartama, miután ráléptek
+4
+A panda életben van, vagyis a az isDead false-t ad
+false

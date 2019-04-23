@@ -1,0 +1,5 @@
+true
+a torekeny csempe elettartama:
+9
+a faradt panda mogott allo objektum:
+p2

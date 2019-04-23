@@ -1,0 +1,44 @@
+reset
+create Orangutan o
+create Panda p1
+create Panda p2
+create Panda p3
+create Tile t1
+create Tile t2
+create Tile t3
+create Tile t4
+create Wardrobe w1
+create Wardrobe w2
+create Tile t5
+create Tile t6
+create Tile t7
+create Tile t8
+run w1 setEntry t4
+run w2 setEntry t5
+run t1 connectNeighbor t2
+run t2 connectNeighbor t3
+run t3 connectNeighbor t4
+run t4 connectNeighbor w1
+run w2 connectNeighbor t5
+run t5 connectNeighbor t6
+run t6 connectNeighbor t7
+run t7 connectNeighbor t8
+run p1 replaceTile t1
+run p2 replaceTile t2
+run p3 replaceTile t3
+run o replaceTile t4
+run p1 follow p2
+run p2 follow p3
+run p3 follow o
+run o move w1
+run o move t6
+run o move t7
+run o move t8
+print Az orangután alatti mezõ:
+run o getTile
+print A panda1 alatti mezõ:
+run p1 getTile
+print A panda2 alatti mezõ:
+run p2 getTile
+print A panda3 alatti mezõ:
+run p3 getTile

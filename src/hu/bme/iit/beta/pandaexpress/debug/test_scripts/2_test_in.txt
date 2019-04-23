@@ -1,0 +1,9 @@
+reset
+create BeepingPanda p1
+create Tile t1
+create Tile t2
+run t1 connectNeighbor t2
+run p1 replaceTile t1
+run p1 move t2
+print A panda ezen a csempén áll a mozgás után: 
+run p1 getTile

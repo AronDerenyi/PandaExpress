@@ -1,0 +1,3 @@
+reset
+create Orangutan o
+run o release

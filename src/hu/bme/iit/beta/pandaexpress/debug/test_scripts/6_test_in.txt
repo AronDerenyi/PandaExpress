@@ -1,0 +1,14 @@
+reset
+create BeepingPanda p
+create Orangutan o
+create Tile t1
+create Tile t2
+create Tile t3
+run t1 connectNeighbor t2
+run t2 connectNeighbor t3
+run p replaceTile t1
+run o replaceTile t2
+run p follow o
+run o move t3
+print A csempe amin a panda áll:
+run p getTile

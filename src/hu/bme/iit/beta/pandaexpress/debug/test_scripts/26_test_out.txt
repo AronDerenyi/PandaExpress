@@ -1,0 +1,11 @@
+true
+true
+true
+Az orangután alatti mezõ:
+t8
+A panda1 alatti mezõ:
+t7
+A panda2 alatti mezõ:
+t6
+A panda3 alatti mezõ:
+t5

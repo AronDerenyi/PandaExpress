@@ -1,0 +1,24 @@
+reset
+create Orangutan o
+create BeepingPanda p
+create Tile t1
+create Tile t2
+create Entry entry
+create Exit exit
+run t1 connectNeighbor t2
+run t2 connectNeighbor exit
+run o replaceTile t2
+run p replaceTile t1
+run p follow o
+run Stage setEntry entry
+print A kilépés elõtti pontszám:
+run Stage getScore
+run o move exit
+run o step
+run p step
+print A kilépés utáni pontszám:
+run Stage getScore
+print Az orángután pozíciója a kilépés után:
+run o getTile
+print A panda eltûnt-e?
+run p isDead

@@ -1,0 +1,9 @@
+true
+A kilépés elõtti pontszám:
+0
+A kilépés utáni pontszám:
+1
+Az orángután pozíciója a kilépés után:
+entry
+A panda eltûnt-e?
+true

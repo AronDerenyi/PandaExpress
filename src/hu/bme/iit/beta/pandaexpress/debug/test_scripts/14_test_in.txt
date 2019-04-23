@@ -1,0 +1,11 @@
+reset
+create BeepingPanda p
+create Tile t1
+create WeakTile t2
+run t1 connectNeighbor t2
+run t2 setLives 5
+run p move t2
+print A törékeny csempe élettartama, miután ráléptek
+run t2 getLives
+print A panda életben van, vagyis a az isDead false-t ad
+run p isDead

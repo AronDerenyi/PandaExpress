@@ -1,0 +1,9 @@
+Sikerült-e beállítani a követést a pandáknál
+true
+true
+A rabló orángután (o2) helye a rablás után
+t1
+A rabolt orángután (o1) helye a rablás után
+t4
+Az eredetileg o1-et követõ panda most õt követi
+o2

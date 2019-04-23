@@ -1,0 +1,17 @@
+reset
+create TiredPanda p1
+create RingingPanda p2
+create WeakTile wt
+create Tile t
+create SlotMachine sm
+run wt connectNeighbor sm
+run wt connectNeighbor t
+run wt setLives 10
+run p1 move wt
+run p2 move t
+run p2 follow p1
+run sm makeNoise
+print a torekeny csempe elettartama:
+run wt getLives
+print a faradt panda mogott allo objektum:
+run p1 getFollowedBy

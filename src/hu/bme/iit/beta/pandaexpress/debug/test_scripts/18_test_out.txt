@@ -1,0 +1,4 @@
+A panda ezen a csempén áll a mozgás után: 
+t2
+A panda ül?
+false

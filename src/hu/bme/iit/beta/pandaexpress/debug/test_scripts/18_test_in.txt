@@ -1,0 +1,15 @@
+reset
+create TiredPanda p
+create Tile t1
+create Tile t2
+create Tile t3
+create Tile t4
+run t1 connectNeighbor t2
+run t2 connectNeighbor t3
+run t2 connectNeighbor t4
+run p replaceTile t1
+run p move t2
+print A panda ezen a csempén áll a mozgás után: 
+run p getTile
+print A panda ül?
+run p isSitting
