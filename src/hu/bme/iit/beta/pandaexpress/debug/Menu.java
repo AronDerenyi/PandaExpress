@@ -112,7 +112,9 @@ public class Menu {
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
 
-	    Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
+	    Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+	    Logger.addAlias(panda, "Panda");
 
 	    Logger.enable();
 
@@ -136,8 +138,13 @@ public class Menu {
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
 
         //animals
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
-        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "Panda");
+
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "Orangutan");
 
         Logger.enable();
         //connecting
@@ -157,8 +164,14 @@ public class Menu {
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile tileWhereOrangutanSteps = Logger.addAlias(new Tile(), "tileWhereOrangutanSteps");
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
-        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "Panda");
+
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "Orangutan");
 
         Logger.enable();
         tileUnderOrangutan.connectNeighbor(tileUnderPanda);
@@ -185,9 +198,17 @@ public class Menu {
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
 
         //animals
-        Panda followingPanda = Logger.addAlias(new BeepingPanda(tileUnderFollowingPanda), "followingPanda");
-        Panda newPanda = Logger.addAlias(new BeepingPanda(tileUnderNewPanda), "newPanda");
-        Orangutan orangutan  = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+        Panda followingPanda = new BeepingPanda();
+        followingPanda.move(tileUnderFollowingPanda);
+        Logger.addAlias(followingPanda, "followingPanda");
+
+        Panda newPanda = new BeepingPanda();
+        newPanda.move(tileUnderNewPanda);
+        Logger.addAlias(tileUnderNewPanda, "newPanda");
+
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "Orangutan");
 
         Logger.enable();
 
@@ -213,9 +234,17 @@ public class Menu {
         Tile tileUnderPanda2 = Logger.addAlias(new Tile(), "tileUnderPanda2");
 
         int[] slotMachineConfig = {0};
-        SlotMachine slotMachine = Logger.addAlias(new SlotMachine(slotMachineConfig), "slotMachine");
-        Panda panda1 = Logger.addAlias(new RingingPanda(tileUnderPanda1), "RingingPanda");
-        Panda panda2 = Logger.addAlias(new BeepingPanda(tileUnderPanda2), "FollowingPanda");
+        SlotMachine slotMachine = new SlotMachine();
+        slotMachine.setWhenToMakeNoise(slotMachineConfig);
+        Logger.addAlias(slotMachine, "slotMachine");
+
+        Panda panda1 = new RingingPanda();
+        panda1.move(tileUnderPanda1);
+        Logger.addAlias(panda1, "RingingPanda");
+
+        Panda panda2 = new BeepingPanda();
+        panda2.move(tileUnderPanda2);
+        Logger.addAlias(panda2, "FollowingPanda");
 
         Logger.enable();
 
@@ -238,11 +267,15 @@ public class Menu {
         Logger.disable();
         //chocolate machine
         int[] chocolateMachineConfig = {0};
-        ChocolateMachine chocolateMachine = Logger.addAlias(new ChocolateMachine(chocolateMachineConfig), "chocolateMachine");
+        ChocolateMachine chocolateMachine = new ChocolateMachine();
+        chocolateMachine.setWhenToMakeNoise(chocolateMachineConfig);
+        Logger.addAlias(chocolateMachine, "chocolateMachine");
         //tile
         WeakTile tileUnderPanda = Logger.addAlias(new WeakTile(), "tileUnderPanda");
         //panda
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "BeepingPanda");
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "BeepingPanda");
 
         Logger.enable();
         //connecting
@@ -262,7 +295,9 @@ public class Menu {
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         WeakTile tileWherePandaSteps = Logger.addAlias(new WeakTile(), "weakTile");
 
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "Panda");
 
         Logger.enable();
 
@@ -289,7 +324,9 @@ public class Menu {
         Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
         Tile tile3 = Logger.addAlias(new Tile(), "nearbyTile");
         //panda
-        Panda panda = Logger.addAlias(new TiredPanda(tileUnderPanda), "tiredPanda");
+        Panda panda = new TiredPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "tiredPanda");
         Logger.enable();
         //connections
         tileUnderPanda.connectNeighbor(tileWherePandaSteps);
@@ -310,7 +347,9 @@ public class Menu {
         Tile tileWherePandaSteps = Logger.addAlias(new Tile(), "tileWherePandaSteps");
         Chair chair = Logger.addAlias(new Chair(), "chair");
 
-        Panda panda = Logger.addAlias(new TiredPanda(tileUnderPanda), "tiredPanda");
+        Panda panda = new TiredPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "tiredPanda");
 
         Logger.enable();
 
@@ -335,7 +374,9 @@ public class Menu {
         Tile tileUnderOrangutan  = Logger.addAlias(new Tile(), "tileUnderOrangutan");
         Tile exit = Logger.addAlias(new Exit(), "exit");
         //orangutan
-        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "orangutan");
 
         //connecting entry
         Stage.getInstance().setEntry(entry);
@@ -361,8 +402,13 @@ public class Menu {
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         Tile exit = Logger.addAlias(new Exit(), "exit");
 
-        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "orangutan");
+
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "panda");
 
         Stage.getInstance().setEntry(entry);
 
@@ -393,7 +439,9 @@ public class Menu {
         Tile wardrobeOutEntry = Logger.addAlias(new Tile(), "wardrobeOutEntry");
         Wardrobe wardrobeOut = Logger.addAlias(new Wardrobe(), "wardrobeOut");
         //orangutan
-        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "orangutan");
 
         Logger.enable();
         //connecting
@@ -421,8 +469,13 @@ public class Menu {
         Tile afterWardrobeEntry = Logger.addAlias(new Tile(), "afterWardrobeEntry");
 
 
-        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "orangutan");
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "orangutan");
+
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "panda");
 
         Logger.enable();
         wardrobe.setEntry(tileUnderOrangutan);
@@ -452,9 +505,13 @@ public class Menu {
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
         //slotmachine
         int[] slotMachineConfig = {0};
-        SlotMachine slotMachine = Logger.addAlias(new SlotMachine(slotMachineConfig), "slotMachine");
+        SlotMachine slotMachine = new SlotMachine();
+        slotMachine.setWhenToMakeNoise(slotMachineConfig);
+        Logger.addAlias(slotMachine, "slotMachine");
         //panda
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "panda");
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "panda");
 
         Logger.enable();
 
@@ -475,8 +532,13 @@ public class Menu {
         Tile tileUnderOrangutan = Logger.addAlias(new Tile(), "tileUnderOrangutan");
         Tile tileUnderPanda = Logger.addAlias(new Tile(), "tileUnderPanda");
 
-        Panda panda = Logger.addAlias(new BeepingPanda(tileUnderPanda), "Panda");
-        Orangutan orangutan = Logger.addAlias(new Orangutan(tileUnderOrangutan), "Orangutan");
+        Panda panda = new BeepingPanda();
+        panda.move(tileUnderPanda);
+        Logger.addAlias(panda, "Panda");
+
+        Orangutan orangutan = new Orangutan();
+        orangutan.move(tileUnderOrangutan);
+        Logger.addAlias(orangutan, "Orangutan");
 
         Logger.enable();
 
