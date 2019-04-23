@@ -43,4 +43,12 @@ public class WeakTile extends Tile{
 			return false;
 		}
 	}
+
+	/**
+	 * getter for lives property
+	 * @return lives property
+	 */
+	public int getLives(){
+		return lives;
+	}
 }

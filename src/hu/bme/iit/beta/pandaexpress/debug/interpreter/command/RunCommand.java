@@ -1,14 +1,10 @@
 package hu.bme.iit.beta.pandaexpress.debug.interpreter.command;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import hu.bme.iit.beta.pandaexpress.debug.interpreter.Environment;
-import hu.bme.iit.beta.pandaexpress.debug.interpreter.Interpreter;
 import hu.bme.iit.beta.pandaexpress.model.Stage;
 
 import java.io.*;
 import java.lang.reflect.Method;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 
 public class RunCommand implements Command {
