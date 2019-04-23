@@ -1,0 +1,3 @@
+create WeakTile w
+run w setLives 2
+run w getLives

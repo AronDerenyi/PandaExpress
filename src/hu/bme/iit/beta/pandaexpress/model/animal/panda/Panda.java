@@ -1,15 +1,9 @@
 package hu.bme.iit.beta.pandaexpress.model.animal.panda;
-
-import hu.bme.iit.beta.pandaexpress.debug.Logger;
 import hu.bme.iit.beta.pandaexpress.model.Stage;
-import hu.bme.iit.beta.pandaexpress.model.Steppable;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
-abstract public class Panda extends Animal implements Steppable {
-
-	private boolean exiting = false;
-
+abstract public class Panda extends Animal {
 	/**
 	 * Overrides the animal's exit function (for further information
 	 * read the documentation of the animal's exit method).
@@ -18,14 +12,10 @@ abstract public class Panda extends Animal implements Steppable {
 	 */
 	@Override
 	public void exit() {
-		Logger.startFunction(this, "exit");
-
 		// Only exit if it's following someone
 		if (getFollowing() != null) {
 			exiting = true;
 		}
-
-		Logger.endFunction();
 	}
 
 	/**
@@ -38,8 +28,6 @@ abstract public class Panda extends Animal implements Steppable {
 	 */
 	@Override
 	public void step() {
-		Logger.startFunction(this, "step");
-
 		if (exiting) {
 			Stage.score(1);
 
@@ -65,7 +53,5 @@ abstract public class Panda extends Animal implements Steppable {
 				}
 			}
 		}
-
-		Logger.endFunction();
 	}
 }
