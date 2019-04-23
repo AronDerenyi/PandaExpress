@@ -6,13 +6,6 @@ import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class ChocolateMachine extends Machine {
 	
-	// Constructor
-	public ChocolateMachine(int[] whenToMakeNoise) {
-		super(whenToMakeNoise);
-		Logger.startFunction(this, "ChocolateMachine", whenToMakeNoise);
-		Logger.endFunction();
-	}
-	
 	// Tile stepOn override - return false, because animals can't step on a chocolate machine
 	@Override
 	public boolean stepOn(Animal a) {

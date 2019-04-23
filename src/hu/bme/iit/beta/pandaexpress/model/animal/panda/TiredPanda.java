@@ -9,18 +9,6 @@ public class TiredPanda extends Panda {
 	private boolean sitting = false;
 
 	/**
-	 * The TiredPanda's constructor which requires an
-	 * initial tile for the panda to move to.
-	 *
-	 * @param tile The panda's initial tile
-	 */
-	public TiredPanda(Tile tile) {
-		super(tile);
-		Logger.startFunction(this, "TiredPanda", tile);
-		Logger.endFunction();
-	}
-
-	/**
 	 * Overrides the animal's move function (for further information
 	 * read the documentation of the animal's move method).
 	 *

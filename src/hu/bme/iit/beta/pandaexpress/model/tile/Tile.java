@@ -10,12 +10,6 @@ public class Tile {
 
 	private List<Tile> neighbors = new LinkedList<>();
 	private Animal animal = null;
-
-	// Constructor
-	public Tile() {
-		Logger.startFunction(this, "Tile");
-		Logger.endFunction();
-	}
 	
 	// return neighbor
 	public Tile[] getNeighbors() {

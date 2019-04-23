@@ -6,14 +6,6 @@ import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class SlotMachine extends Machine {
 	
-	// Constructor
-	public SlotMachine(int[] whenToMakeNoise) {
-		super(whenToMakeNoise);
-		Logger.startFunction(this, "SlotMachine", whenToMakeNoise);
-		Logger.endFunction();
-	}
-	
-	
 	// Tile stepOn override - return false, because animals can't step on a slot machine
 	@Override
 	public boolean stepOn(Animal a) {

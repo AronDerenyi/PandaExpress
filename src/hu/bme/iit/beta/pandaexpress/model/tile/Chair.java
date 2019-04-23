@@ -5,12 +5,6 @@ import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 
 public class Chair extends Tile {
 	
-	// Constructor
-	public Chair() {
-		Logger.startFunction(this, "Chair");
-		Logger.endFunction();
-	}
-	
 	// Tile stepOn override - return false, because animals can't step on a chair
 	@Override
 	public boolean stepOn(Animal a) {

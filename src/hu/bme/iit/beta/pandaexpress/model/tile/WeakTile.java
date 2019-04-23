@@ -46,6 +46,4 @@ public class WeakTile extends Tile{
 			return Logger.endFunction(false);
 		}
 	}
-	
-
 }
