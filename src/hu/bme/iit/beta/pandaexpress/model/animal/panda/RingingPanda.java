@@ -7,11 +7,10 @@ public class RingingPanda extends Panda {
 	 * Overrides the animal's hearRinging function (for further information
 	 * read the documentation of the animal's hearRinging method).
 	 *
-	 * Unfollows and releases all of it's related animals.
+	 * Releases all the animals who follow him.
 	 */
 	@Override
 	public void hearRinging() {
-		unfollow();
 		release();
 	}
 }
