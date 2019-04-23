@@ -4,7 +4,10 @@
 /build
 /captures
 .externalNativeBuild
-
+/out
 # Intellij
 *.iml
 .idea
+.project
+.classpath
+/bin/
