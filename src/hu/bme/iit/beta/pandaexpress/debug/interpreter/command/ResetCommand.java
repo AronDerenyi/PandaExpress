@@ -23,8 +23,11 @@ public class ResetCommand implements Command {
 			return;
 		}
 
-		writer.println("Resetting environment");
-
-		writer.flush();
+		try {
+			environment.clear();
+		} catch (Exception e) {
+			writer.println("Failed to reset the environment: " + e.getMessage());
+			writer.flush();
+		}
 	}
 }
