@@ -1,0 +1,15 @@
+true
+true
+true
+A kilépés előtti pontszám:
+0
+A kilépés utáni pontszám:
+3
+Az orángután pozíciója a kilépés után:
+entry
+Az első panda (p1) eltűnt-e?
+true
+A második panda (p2) eltűnt-e?
+true
+A harmadik panda (p3) eltűnt-e?
+true

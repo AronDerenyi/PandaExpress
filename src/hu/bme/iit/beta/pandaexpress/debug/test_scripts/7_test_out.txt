@@ -1,0 +1,9 @@
+true
+true
+true
+Az orangutánt ki követi?
+p1b
+Az első pandát (p1b) követi-e még a második Ringing Panda (p2r)?
+p2r
+A második pandát (p2r) követi-e még a harmadik Beeping Panda (p3b)?
+null

@@ -1,0 +1,28 @@
+reset
+create Orangutan o
+create BeepingPanda p1b
+create RingingPanda p2r
+create BeepingPanda p3b
+create Tile t1
+create Tile t2
+create Tile t3
+create Tile t4
+create SlotMachine sm
+run t1 connectNeighbor t2
+run t2 connectNeighbor t3
+run t3 connectNeighbor t4
+run t3 connectNeighbor sm
+run o replaceTile t1
+run p1b replaceTile t2
+run p2r replaceTile t3
+run p3b replaceTile t4
+run p1b follow o
+run p2r follow p1b
+run p3b follow p2r
+run sm makeNoise
+print Az orangutánt ki követi?
+run o getFollowedBy
+print Az első pandát (p1b) követi-e még a második Ringing Panda (p2r)?
+run p1b getFollowedBy
+print A második pandát (p2r) követi-e még a harmadik Beeping Panda (p3b)?
+run p3b getFollowedBy

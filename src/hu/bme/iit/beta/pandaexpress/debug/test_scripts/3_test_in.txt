@@ -1,0 +1,9 @@
+reset
+create Orangutan o
+create Tile t1
+create Tile t2
+run t1 connectNeighbor t2
+run o replaceTile t1
+run o move t2
+print Az orángután ezen a csempén áll a mozgás után:
+run o getTile

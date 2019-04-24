@@ -1,0 +1,6 @@
+A panda helye a mozgást követően
+ch
+Ül a panda?
+true
+A fotelben ki ül?
+p

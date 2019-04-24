@@ -1,0 +1,22 @@
+reset
+create Orangutan o1
+create Orangutan o2
+create BeepingPanda p
+create Tile t1
+create Tile t2
+create Tile t3
+run t2 connectNeighbor t1
+run t2 connectNeighbor t3
+run o1 replaceTile t2
+run p replaceTile t3
+run o2 replaceTile t1
+run p follow o1
+run o1 move t1
+print lefagyott-e az allo orangutan:
+run o2 getFrozen
+print a mozgo orangutan helye
+run o1 getTile
+print a panda helye
+run p getTile
+print a mozgo orangutan kovetoje
+run o1 getFollowedBy

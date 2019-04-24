@@ -1,0 +1,5 @@
+true
+Követi-e még az orángutánt egy panda?
+null
+Követi-e a panda az orángutánt?
+null

@@ -1,0 +1,6 @@
+A gyenge csempe élete az ugrás után:
+0
+Ki van a törött csempén?
+null
+A panda meghalt?
+true

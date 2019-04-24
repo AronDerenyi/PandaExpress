@@ -1,0 +1,14 @@
+reset
+create BeepingPanda p
+create WeakTile wt
+create Tile t
+run wt setLives 1
+run t connectNeighbor wt
+run p replaceTile t
+run p move wt
+print A gyenge csempe élete az ugrás után:
+run wt getLives
+print Ki van a törött csempén?
+run wt getAnimal
+print A panda meghalt?
+run p isDead
