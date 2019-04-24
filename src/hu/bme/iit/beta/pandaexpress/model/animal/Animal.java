@@ -124,7 +124,7 @@ abstract public class Animal implements Steppable {
 	}
 
 	/**
-	 * Tries to make thia animal follow the given animal.
+	 * Tries to make this animal follow the given animal.
 	 * Returns true if this animal successfully started following
 	 * the given animal.
 	 *
@@ -180,4 +180,13 @@ abstract public class Animal implements Steppable {
 	 * an exit tile).
 	 */
 	public abstract void exit();
+
+	/**
+	 * Returns whether the animal can be dominated. Generally
+	 * an animal cannot be dominated.
+	 * @return The animal can be dominated
+	 */
+	public boolean dominate() {
+		return false;
+	}
 }

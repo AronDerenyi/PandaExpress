@@ -19,7 +19,8 @@ public class Orangutan extends Animal implements Steppable {
 	 *
 	 * This method also check's for animals standing on the tile where
 	 * the orangutan should move. If there is an animal, it tries to grab it
-	 * and make it follow the orangutan.
+	 * and make it follow the orangutan. If it cannot grab it, it tries to dominate it
+	 * and steal the animals that follow him.
 	 *
 	 * @param tile The tile where the orangutan should move
 	 */
@@ -29,26 +30,55 @@ public class Orangutan extends Animal implements Steppable {
 		if (exiting) {
 			return;
 		}
-		// Grab the animal on the tile the Orangutan tries to step on
 		Animal animal = tile.getAnimal();
 		Animal prevFollowedBy = getFollowedBy();
-		boolean grabbed = false;
-		if (animal != null && frozen == 0) {
-			grabbed = animal.follow(this);
-			if (grabbed) {
-				animal.release();
-				animal.leaveTile();
+		boolean canGrab = false;
+		if (frozen == 0) {
+			// There is an animal on the tile this animal is trying to move to
+			if (animal != null) {
+				canGrab = animal.follow(this);
+				if (canGrab) {
+					// Grab the animal on the tile the Orangutan tries to step on
+					//prevFollowedBy.unfollow();
+					animal.release();
+					animal.leaveTile();
+					Tile thisTile = this.getTile();
+					super.move(tile);
+					animal.move(thisTile);
+					if (prevFollowedBy != null) {
+						prevFollowedBy.follow(animal);
+					}
+
+				} else {
+					Animal followingAnimal = animal.getFollowedBy();
+					if (getFollowedBy() == null && followingAnimal != null) {
+						// Steals the animal that is following the animal on the tile the Orangutan tries to step on
+						boolean canBeDominated = animal.dominate();
+						Tile thisTile = this.getTile();
+						super.move(tile);
+						if (canBeDominated) {
+							followingAnimal.follow(this);
+							animal.move(thisTile);
+						}
+					}
+				}
+			}
+			// The tile is empty
+			else {
+				super.move(tile);
 			}
 		}
 
-		// Actually move
-		super.move(tile);
+	}
 
-		// Make the previously following animal follow the currently following animal
-		if (grabbed && prevFollowedBy != null) {
-			prevFollowedBy.follow(getFollowedBy());
-		}
-
+	/**
+	 * Overrides the animal's dominate method.
+	 * The orangutan can be dominated
+	 */
+	@Override
+	public boolean dominate() {
+		leaveTile();
+		return true;
 	}
 
 	/**

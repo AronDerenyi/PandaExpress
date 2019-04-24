@@ -22,5 +22,5 @@ print A rabló orángután (o2) helye a rablás után
 run o2 getTile
 print A rabolt orángután (o1) helye a rablás után
 run o1 getTile
-print Az eredetileg a o1-et követõ panda most õt követi
+print Az eredetileg o1-et követõ panda most õt követi
 run p1 getFollowing
