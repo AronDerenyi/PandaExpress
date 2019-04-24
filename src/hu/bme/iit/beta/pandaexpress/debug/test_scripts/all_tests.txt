@@ -1,38 +1,74 @@
 print 1
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/1_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/1_test_out.txt
+print 2
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/2_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/2_test_out.txt
 print 3
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/3_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/3_test_out.txt
+print 4
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/4_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/4_test_out.txt
 print 5
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/5_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/5_test_out.txt
+print 6
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/6_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/6_test_out.txt
 print 7
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/7_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/7_test_out.txt
+print 8
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/8_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/8_test_out.txt
 print 9
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/9_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/9_test_out.txt
+print 10
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/10_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/10_test_out.txt
 print 11
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/11_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/11_test_out.txt
+print 12
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/12_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/12_test_out.txt
 print 13
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/13_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/13_test_out.txt
+print 14
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/14_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/14_test_out.txt
 print 15
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/15_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/15_test_out.txt
+print 16
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/16_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/16_test_out.txt
 print 17
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/17_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/17_test_out.txt
+print 18
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/18_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/18_test_out.txt
 print 19
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/19_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/19_test_out.txt
+print 20
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/20_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/20_test_out.txt
 print 21
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/21_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/21_test_out.txt
+print 22
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/22_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/22_test_out.txt
 print 23
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/23_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/23_test_out.txt
+print 24
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/24_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/24_test_out.txt
 print 25
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/25_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/25_test_out.txt
+print 26
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/26_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/26_test_out.txt
 print 27
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/27_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/27_test_out.txt
+print 28
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/28_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/28_test_out.txt
 print 29
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/29_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/29_test_out.txt
+print 30
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/30_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/30_test_out.txt
 print 31
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/31_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/31_test_out.txt
+print 32
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/32_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/32_test_out.txt
 print 33
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/33_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/33_test_out.txt
+print 34
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/34_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/34_test_out.txt
 print 35
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/35_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/35_test_out.txt
+print 36
+test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/36_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/36_test_out.txt
 print 37
 test src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/37_test_in.txt src/hu/bme/iit/beta/pandaexpress/debug/test_scripts/37_test_out.txt

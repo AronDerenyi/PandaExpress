@@ -1,11 +1,11 @@
 true
 true
 true
-Az orangután alatti mezõ:
+Az orangutï¿½n alatti mezï¿½:
 t8
-A panda1 alatti mezõ:
-t7
-A panda2 alatti mezõ:
-t6
-A panda3 alatti mezõ:
+A panda1 alatti mezï¿½:
 t5
+A panda2 alatti mezï¿½:
+t6
+A panda3 alatti mezï¿½:
+t7
