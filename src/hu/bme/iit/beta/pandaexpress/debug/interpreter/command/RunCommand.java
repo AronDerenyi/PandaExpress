@@ -4,6 +4,7 @@ import hu.bme.iit.beta.pandaexpress.debug.interpreter.Environment;
 import hu.bme.iit.beta.pandaexpress.model.Stage;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
@@ -43,8 +44,16 @@ public class RunCommand implements Command {
 				writer.flush();
 			}
 		} catch (Exception e) {
-			writer.println("Failed to run \"" + arguments[1] + "\": " +
-					e.getClass().getSimpleName() + " - " + e.getMessage());
+
+			Throwable error;
+			if (e instanceof InvocationTargetException) {
+				error = ((InvocationTargetException) e).getTargetException();
+			} else {
+				error = e;
+			}
+
+			writer.println("Failed to run " + arguments[1] + "." + arguments[2] + ": " +
+					error.getClass().getSimpleName() + " - " + error.getMessage());
 			writer.flush();
 		}
 	}
