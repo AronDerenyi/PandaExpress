@@ -20,6 +20,9 @@ public class Stage {
 	 */
 	private static Stage instance;
 	
+	/**
+	 * private empty Constructor
+	 */
 	private Stage() {}
 
 	/**
@@ -62,10 +65,16 @@ public class Stage {
 	 */
 	public static void resetScore() { score = 0; }
 
+	/**
+	 * getter: returns score
+	 */
 	public static int getScore() {
 		return score;
 	}
 	
+	/**
+	 * loads the level specified in the parameter (this method currently not used)
+	 */
 	public static void load(int level) {
 		
 	}

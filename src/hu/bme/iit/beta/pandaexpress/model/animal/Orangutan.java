@@ -8,6 +8,9 @@ import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class Orangutan extends Animal implements Steppable {
 	
+	/**
+	 *  Flag that stores whether Orangutan is frozen
+	 */
 	private int frozen;
 	
 	/**
@@ -103,6 +106,9 @@ public class Orangutan extends Animal implements Steppable {
 
 	}
 	
+	/**
+	 * Overrides the Animal class replaceTile function. If the Orangutan is frozen then it can't move
+	 */
 	@Override
 	public void replaceTile(Tile tile) {
 		
@@ -114,10 +120,16 @@ public class Orangutan extends Animal implements Steppable {
 
 	}
 	
+	/**
+	 * getter: returns value of frozen
+	 */
 	public int getFrozen() {
 		return frozen;
 	}
 	
+	/**
+	 * setter: sets value of frozen
+	 */
 	public void setFrozen(int c) {
 		frozen= c;
 	}

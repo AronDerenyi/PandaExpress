@@ -5,13 +5,19 @@ import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class ChocolateMachine extends Machine {
 	
-	// Tile stepOn override - return false, because animals can't step on a chocolate machine
+	/** 
+	 * Tile stepOn override - return false, because animals can't step on a chocolate machine
+	 */
 	@Override
 	public boolean stepOn(Animal a) {
 		return false;
 	}
-
-	// Chocolate machine beeps
+ 
+	/** 
+	 * Machine makeNoise override
+	 * Chocolate machine beeps
+	 * Tells the animals who are standing on the surrounding tiles that a beeping has happened
+	 */
 	@Override
 	public void makeNoise() {
 		Tile[] neighbors= getNeighbors();
