@@ -43,7 +43,7 @@ public class Stage {
 
 	/**
 	 * setter for entry
-	 * @param entry
+	 * @param entry the entry tile to be set
 	 */
 	public static void setEntry(Entry entry) {
 		Stage.entry = entry;
@@ -56,7 +56,12 @@ public class Stage {
 	public static void score(int amount) {
 		score += amount;
 	}
-	
+
+	/**
+	 * Resets the score
+	 */
+	public static void resetScore() { score = 0; }
+
 	public static int getScore() {
 		return score;
 	}

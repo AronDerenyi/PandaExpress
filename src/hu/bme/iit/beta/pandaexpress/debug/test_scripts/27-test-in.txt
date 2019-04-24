@@ -1,8 +1,0 @@
-create BeepingPanda p
-create Tile tile
-create ChocolateMachine chocolateMachine
-run tile connectNeighbor chocolateMachine
-run p replaceTile tile
-run p move chocolateMachine
-print A panda csokiautomatán (chocolateMachine) vagy a csempén áll (tile)?
-run p getTile

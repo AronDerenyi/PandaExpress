@@ -1,5 +1,7 @@
 package hu.bme.iit.beta.pandaexpress.debug.interpreter;
 
+import hu.bme.iit.beta.pandaexpress.model.Stage;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,6 +51,7 @@ public class Environment {
 	public void clear() {
 		objectsByName.clear();
 		namesByObject.clear();
+		Stage.resetScore();
 	}
 
 	public static class EnvironmentException extends RuntimeException {

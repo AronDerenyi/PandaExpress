@@ -23,6 +23,14 @@ public class TiredPanda extends Panda {
 	}
 
 	/**
+	 * Returns whether the panda is sitting or not
+	 * @return The sitting attribute
+	 */
+	public boolean isSitting() {
+		return sitting;
+	}
+
+	/**
 	 * Overrides the animal's move function (for further information
 	 * read the documentation of the animal's move method).
 	 *

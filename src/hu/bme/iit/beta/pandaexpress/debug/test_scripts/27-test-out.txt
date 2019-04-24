@@ -1,2 +1,0 @@
-A panda csokiautomatán (chocolateMachine) vagy a csempén áll (tile)?
-tile

@@ -1,9 +1,0 @@
-true
-true
-true
-A TiredPanda követője:
-null
-A TiredPanda követi:
-null
-A fotel tartalma követője:
-tp
