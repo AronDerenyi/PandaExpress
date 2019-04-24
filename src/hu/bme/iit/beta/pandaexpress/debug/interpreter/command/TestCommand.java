@@ -30,7 +30,8 @@ public class TestCommand implements Command {
 			fileInput.close();
 			fileOutput.close();
 
-			String[] outputLines = fileOutput.toString().split("\n");
+			String outputString = fileOutput.toString();
+			String[] outputLines = outputString.isEmpty() ? new String[0] : outputString.split("\n");
 			BufferedReader compareReader = new BufferedReader(new InputStreamReader(new FileInputStream(arguments[2])));
 
 			int outputLineIndex = 0;
