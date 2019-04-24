@@ -1,0 +1,4 @@
+A panda helyzete:
+t2
+Az orángután helyzete:
+t1

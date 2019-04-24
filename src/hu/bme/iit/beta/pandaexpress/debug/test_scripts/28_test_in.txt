@@ -1,0 +1,13 @@
+reset
+create Orangutan o
+create BeepingPanda p
+create Tile t1
+create Tile t2
+run t1 connectNeighbor t2
+run o replaceTile t1
+run p replaceTile t2
+run p move t1
+print A panda helyzete:
+run p getTile
+print Az orángután helyzete:
+run o getTile

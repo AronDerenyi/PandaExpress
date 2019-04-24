@@ -1,0 +1,9 @@
+true
+Az orángután helye
+t1
+Az elfogott panda helye
+t2
+Az elfogott panda kit követ?
+o
+Az elfogott pandát ki követi?
+p1

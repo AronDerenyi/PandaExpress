@@ -1,0 +1,17 @@
+reset
+create BeepingPanda p1
+create BeepingPanda p2
+create WeakTile wt
+create Tile t1
+create Tile t2
+run wt setLives 1
+run t1 connectNeighbor t2
+run t2 connectNeighbor wt
+run p1 replaceTile t1
+run p2 replaceTile t2
+run p1 follow p2
+run p2 move wt
+print Halott a panda akit követnek?
+run p2 isDead
+print A követõ panda kit követ?
+run p1 getFollowing

@@ -1,0 +1,17 @@
+reset
+create TiredPanda sitting
+create TiredPanda p
+create Tile t1
+create Tile t2
+create Chair ch
+run t1 connectNeighbor ch
+run t1 connectNeighbor t2
+run p move t2
+run ch sitOn sitting
+run p move t1
+print a szeken ulo allat:
+run ch getAnimal
+print a t2-n allo allat:
+run t2 getAnimal
+print a mozgo panda alatt levo mezo:
+run p getTile

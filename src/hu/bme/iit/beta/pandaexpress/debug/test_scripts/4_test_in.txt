@@ -1,0 +1,22 @@
+reset
+create Orangutan o
+create BeepingPanda p1
+create BeepingPanda p2
+create Tile t1
+create Tile t2
+create Tile t3
+run t1 connectNeighbor t2
+run t2 connectNeighbor t3
+run o replaceTile t2
+run p1 replaceTile t3
+run p2 replaceTile t1
+run p1 follow o
+run o move t1
+print Az orángután helye
+run o getTile
+print Az elfogott panda helye
+run p2 getTile
+print Az elfogott panda kit követ?
+run p2 getFollowing
+print Az elfogott pandát ki követi?
+run p2 getFollowedBy

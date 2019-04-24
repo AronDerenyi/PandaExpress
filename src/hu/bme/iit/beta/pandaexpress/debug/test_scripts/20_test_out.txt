@@ -1,0 +1,7 @@
+true
+a szeken ulo allat:
+sitting
+a t2-n allo allat:
+null
+a mozgo panda alatt levo mezo:
+t1

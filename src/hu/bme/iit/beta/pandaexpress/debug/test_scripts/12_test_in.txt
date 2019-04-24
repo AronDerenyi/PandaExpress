@@ -1,0 +1,11 @@
+reset
+create BeepingPanda p1
+create WeakTile t1
+create ChocolateMachine cm
+run t1 connectNeighbor cm
+run p1 replaceTile t1
+print A gyenge csempe élete az ugrás elõtt:
+run t1 getLives
+run cm makeNoise
+print A gyenge csempe élete az ugrás után:
+run t1 getLives

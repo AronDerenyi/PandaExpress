@@ -1,0 +1,13 @@
+reset
+create Orangutan o
+create Tile entry1
+create Wardrobe w1
+create Wardrobe w2
+create Tile entry2
+run w1 setEntry entry1
+run w2 setEntry entry2
+run w2 connect w1
+run o replaceTile entry1
+run o move w1
+print Az orángután helye a lépés után
+run o getTile

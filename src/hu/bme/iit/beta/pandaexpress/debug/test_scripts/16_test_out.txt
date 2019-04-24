@@ -1,0 +1,5 @@
+true
+Halott a panda akit követnek?
+true
+A követõ panda kit követ?
+null

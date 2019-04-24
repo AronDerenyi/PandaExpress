@@ -1,0 +1,14 @@
+reset
+create Orangutan o
+create BeepingPanda p
+create Tile t
+create Entry en
+create Exit ex
+run t connectNeighbor ex
+run o replaceTile t
+run p replaceTile en
+run Stage setEntry en
+run o move ex
+run o step
+print Az orángután ezen a csempén áll:
+run o getTile

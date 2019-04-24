@@ -1,0 +1,4 @@
+A gyenge csempe élete az ugrás elõtt:
+20
+A gyenge csempe élete az ugrás után:
+19
