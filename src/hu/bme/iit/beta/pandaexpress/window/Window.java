@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
-
 public final class Window {
 
 	private static Window instance;
