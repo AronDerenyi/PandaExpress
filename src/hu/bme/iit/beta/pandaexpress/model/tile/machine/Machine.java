@@ -4,6 +4,11 @@ import hu.bme.iit.beta.pandaexpress.model.Steppable;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Machine abstract class
  * Represents the tiles that has a machine of some sort on them.
@@ -14,7 +19,7 @@ public abstract class Machine extends Tile implements Steppable {
 	/**
 	 * Array of integers that tells which ticks the machine should make a noise
 	 */
-	private int[] whenToMakeNoise;
+	private List<Integer> whenToMakeNoise;
 	/**
 	 * Internal counter that counts the ticks that has passed since the creation of the machine
 	 */
@@ -25,7 +30,7 @@ public abstract class Machine extends Tile implements Steppable {
 	 * Initializes the machine
 	 */
 	public Machine() {
-		this.whenToMakeNoise = null;
+		this.whenToMakeNoise = new ArrayList<>();
 		steps = 0;
 	}
 
@@ -34,7 +39,8 @@ public abstract class Machine extends Tile implements Steppable {
 	 * @param whenToMakeNoise The array of integers that contains the tick numbers when the machine should make a noise
 	 */
 	public void setWhenToMakeNoise(int[] whenToMakeNoise) {
-		this.whenToMakeNoise = whenToMakeNoise;
+		for(int noise : whenToMakeNoise)
+			addNoise(noise);
 	}
 
 	/**
@@ -61,12 +67,17 @@ public abstract class Machine extends Tile implements Steppable {
 	 */
 	@Override
 	public void step() {
+		int max = Collections.max(whenToMakeNoise);
+
 		for(int shallMakeNoise : whenToMakeNoise) {
-			if(steps == shallMakeNoise) {
+			if(steps % max == shallMakeNoise) {
 				makeNoise();
 			}
 		}
-
 		steps++;
+	}
+
+	public final void addNoise(Integer i){
+		whenToMakeNoise.add(i);
 	}
 }

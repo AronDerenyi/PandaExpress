@@ -14,7 +14,8 @@ public class Tile {
 	 */
 	private List<Tile> neighbors = new LinkedList<>();
 	private Animal animal = null;
-
+	private int positionX;
+	private int positionY;
 
 	/**
 	 * A getter function for the neighbours private attribute
@@ -77,4 +78,12 @@ public class Tile {
 	public boolean sitOn(Animal animal) {
 		return false;
 	}
+	public final void setPosition(int x, int y){
+		positionX = x;
+		positionY = y;
+	}
+
+	public final int getPositionX(){ return positionX; }
+	public final int getPositionY(){ return positionY; }
+
 }

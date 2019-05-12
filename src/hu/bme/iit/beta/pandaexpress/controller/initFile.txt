@@ -1,0 +1,6 @@
+reset
+create BeepingPanda p1
+create Tile t1
+create Tile t2
+run t1 connectNeighbor t2
+run p1 move t1
