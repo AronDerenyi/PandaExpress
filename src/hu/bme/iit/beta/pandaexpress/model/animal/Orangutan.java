@@ -119,7 +119,7 @@ public class Orangutan extends Animal implements Steppable {
 		if (exiting) {
 			// Tries to move to the entry
 			Tile tile = getTile();
-			Entry entry = Stage.getEntry();
+			Entry entry = Stage.getInstance().getEntry();
 			boolean stepped = entry.stepOn(this);
 
 			// Successfully moved to the entry tile so it's no longer exiting and it let's go of it's followers

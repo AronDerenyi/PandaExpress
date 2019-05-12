@@ -1,6 +1,7 @@
 package hu.bme.iit.beta.pandaexpress.debug.interpreter.command;
 
 import hu.bme.iit.beta.pandaexpress.debug.interpreter.Environment;
+import hu.bme.iit.beta.pandaexpress.model.Stage;
 import hu.bme.iit.beta.pandaexpress.model.animal.Orangutan;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.BeepingPanda;
 import hu.bme.iit.beta.pandaexpress.model.animal.panda.RingingPanda;

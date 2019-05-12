@@ -10,11 +10,11 @@ public class Stage {
 	 * Gained score during the game
 	 * The amount pandas that have been escorted through exit
 	 */
-	private static int score = 0;
+	private int score = 0;
 	/**
 	 * The entry of the stage
 	 */
-	private static Entry entry = null;
+	private Entry entry = null;
 	/**
 	 * Static instance for singleton behavior
 	 */
@@ -40,7 +40,7 @@ public class Stage {
 	 * getter for entry
 	 * @return entry of the game
 	 */
-	public static Entry getEntry() {
+	public Entry getEntry() {
 		return entry;
 	}
 
@@ -48,34 +48,34 @@ public class Stage {
 	 * setter for entry
 	 * @param entry the entry tile to be set
 	 */
-	public static void setEntry(Entry entry) {
-		Stage.entry = entry;
+	public void setEntry(Entry entry) {
+		Stage.getInstance().entry = entry;
 	}
 
 	/**
 	 * increments gained score by the given amount
 	 * @param amount how much the game score shall be incremented
 	 */
-	public static void score(int amount) {
+	public void score(int amount) {
 		score += amount;
 	}
 
 	/**
 	 * Resets the score
 	 */
-	public static void resetScore() { score = 0; }
+	public void resetScore() { score = 0; }
 
 	/**
 	 * getter: returns score
 	 */
-	public static int getScore() {
+	public int getScore() {
 		return score;
 	}
 	
 	/**
 	 * loads the level specified in the parameter (this method currently not used)
 	 */
-	public static void load(int level) {
-		
+	public void load(int level) {
+
 	}
 }

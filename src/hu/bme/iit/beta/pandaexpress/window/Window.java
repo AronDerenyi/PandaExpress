@@ -37,6 +37,9 @@ public final class Window {
 		frame.setResizable(false);
 		frame.add(canvas);
 		frame.setVisible(true);
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) { }
 		canvas.requestFocus();
 	}
 

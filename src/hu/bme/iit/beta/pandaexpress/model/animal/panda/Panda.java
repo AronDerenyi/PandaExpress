@@ -29,7 +29,7 @@ abstract public class Panda extends Animal {
 	@Override
 	public void step() {
 		if (exiting) {
-			Stage.score(1);
+			Stage.getInstance().score(1);
 
 			Tile tile = getTile();
 			Animal followedBy = getFollowedBy();

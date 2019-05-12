@@ -5,6 +5,7 @@ import hu.bme.iit.beta.pandaexpress.debug.interpreter.Environment;
 import hu.bme.iit.beta.pandaexpress.debug.interpreter.Interpreter;
 import hu.bme.iit.beta.pandaexpress.model.Stage;
 import hu.bme.iit.beta.pandaexpress.model.Steppable;
+import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.animal.Orangutan;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 import hu.bme.iit.beta.pandaexpress.model.tile.WeakTile;
@@ -33,6 +34,7 @@ public class Controller extends Screen implements Steppable {
 	private List<View> views;
 
 	private Controller(){
+		views = new ArrayList<>();
 		try {
 			Interpreter interpreter = new Interpreter(
 					new FileInputStream(new File(initFile)),
@@ -40,7 +42,7 @@ public class Controller extends Screen implements Steppable {
 					new Environment()
 			);
 			Set<Tile> tiles = new HashSet<>();
-			DFS(Stage.getEntry(), tiles);
+			DFS(Stage.getInstance().getEntry(), tiles);
 			createViews(tiles);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -55,11 +57,15 @@ public class Controller extends Screen implements Steppable {
 	}
 
 	private void createViews(Collection<Tile> tiles){
-		for(Tile tile : tiles)
-			views.add(createView(tile));
+		for(Tile tile : tiles){
+			views.add(createTileView(tile));
+			Animal animal;
+			if((animal = tile.getAnimal()) != null)
+				views.add(createAnimalView(animal));
+		}
 	}
 
-	private View createView(Tile tile){
+	private View createTileView(Tile tile){
 //		Class tileType = tile.getClass();
 //		if(tileType == WeakTile.class)
 //			return new WeakTileView(tile);
@@ -71,6 +77,17 @@ public class Controller extends Screen implements Steppable {
 		};
 	}
 
+	private View createAnimalView(Animal animal){
+//		Class animalType = animal.getClass();
+//		if(animalType == Orangutan.class)
+//			return new WeakTileView(tile);
+		return new View() {
+			@Override
+			public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
+				drawCircle(graphics, 100, 100, 16, Color.CYAN, "T1");
+			}
+		};
+	}
 	@Override
 	public void onAttach() {
 		Graphics2D g = getGraphics();
@@ -109,6 +126,13 @@ public class Controller extends Screen implements Steppable {
 				break;
 			}
 		selectedOrangutan = null;
+	}
+
+	@Override
+	protected void onClick(int x, int y) {
+		for(View view : views)
+			if(view.onClick(x, y))
+				return;
 	}
 
 	@Override

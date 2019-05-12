@@ -51,7 +51,7 @@ public class Environment {
 	public void clear() {
 		objectsByName.clear();
 		namesByObject.clear();
-		Stage.resetScore();
+		Stage.getInstance().resetScore();
 	}
 
 	public static class EnvironmentException extends RuntimeException {
