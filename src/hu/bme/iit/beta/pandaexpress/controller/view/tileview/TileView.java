@@ -9,18 +9,18 @@ import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
 public class TileView extends View {
 	protected Tile tile;
-	protected int r= 50;
-	
+	protected int r= 30;
+
 	public TileView(Tile t) {
 		tile= t;
 	}
-	
+
 	@Override
 	public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
 		drawCircle(graphics, tile.getPositionX(), tile.getPositionY(), r, Color.WHITE);
 	    onDrawConnection(graphics, screenWidth, screenHeight);
 	}
-	 
+
 	protected void onDrawConnection(Graphics2D graphics, int screenWidth, int screenHeight) {
 		for(int i=0; i < tile.getNeighbors().length; i++) {
 			Tile neighbor= tile.getNeighbors()[i];
@@ -30,6 +30,7 @@ public class TileView extends View {
 
 	@Override
 	public boolean onClick(int mouseX, int mouseY) {
+		if(!Controller.getInstance().isOrangutanSelected()) return false;
 		if(!isCircleClicked(mouseX, mouseY, tile.getPositionX(), tile.getPositionY(), r))
 			return false;
 		Controller.getInstance().tileClicked(this.tile);

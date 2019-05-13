@@ -134,7 +134,10 @@ public class Controller extends Screen implements Steppable {
 
 	public void setSelectedOrangutan(Orangutan selected){
 		selectedOrangutan = selected;
-		System.out.println("orangutan selected");
+	}
+
+	public boolean isOrangutanSelected(){
+		return selectedOrangutan != null;
 	}
 
 	public void tileClicked(Tile tile){
