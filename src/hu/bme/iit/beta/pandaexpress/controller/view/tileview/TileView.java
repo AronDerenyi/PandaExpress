@@ -10,9 +10,9 @@ public class TileView extends View {
 
 	public final Tile tile;
 
-	private int radius = 20;
-	private Paint color;
-	private String text;
+	protected int radius = 20;
+	protected Paint color;
+	protected String text;
 
 	protected TileView(Tile tile, Paint color, String text) {
 		this.tile = tile;
