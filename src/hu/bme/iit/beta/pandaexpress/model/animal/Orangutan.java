@@ -26,49 +26,31 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public void move(Tile tile) {
-		// If the orangutan is exiting, it should not be able to move
-		if (exiting) {
-			return;
-		}
+		if (exiting) return;
+
 		Animal animal = tile.getAnimal();
 		Animal prevFollowedBy = getFollowedBy();
-		boolean canGrab = false;
-		if (frozen == 0) {
-			// There is an animal on the tile this animal is trying to move to
-			if (animal != null) {
-				canGrab = animal.follow(this);
-				if (canGrab) {
-					// Grab the animal on the tile the Orangutan tries to step on
-					//prevFollowedBy.unfollow();
-					animal.release();
-					animal.leaveTile();
-					Tile thisTile = this.getTile();
-					super.move(tile);
-					animal.move(thisTile);
-					if (prevFollowedBy != null) {
-						prevFollowedBy.follow(animal);
-					}
 
-				} else {
-					Animal followingAnimal = animal.getFollowedBy();
-					if (getFollowedBy() == null && followingAnimal != null) {
-						// Steals the animal that is following the animal on the tile the Orangutan tries to step on
-						boolean canBeDominated = animal.dominate();
-						Tile thisTile = this.getTile();
-						super.move(tile);
-						if (canBeDominated) {
-							followingAnimal.follow(this);
-							animal.move(thisTile);
-						}
-					}
+		if (frozen == 0 && animal != null) {
+			if (animal.follow(this)) {
+				animal.release();
+				animal.leaveTile();
+				super.move(tile);
+				if (prevFollowedBy != null) {
+					prevFollowedBy.follow(animal);
+				}
+			} else if (getFollowedBy() == null) {
+				Animal followingAnimal = animal.getFollowedBy();
+				if (animal.dominate()) {
+					Tile prevTile = getTile();
+					super.move(tile);
+					followingAnimal.follow(this);
+					animal.move(prevTile);
 				}
 			}
-			// The tile is empty
-			else {
-				super.move(tile);
-			}
+		} else {
+			super.move(tile);
 		}
-
 	}
 
 	/**
@@ -77,8 +59,14 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public boolean dominate() {
-		leaveTile();
-		return true;
+		if (getFollowedBy() != null) {
+			getFollowedBy().unfollow();
+			leaveTile();
+			setFrozen(3);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -115,7 +103,6 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public void step() {
-
 		if (exiting) {
 			// Tries to move to the entry
 			Tile tile = getTile();
@@ -133,7 +120,6 @@ public class Orangutan extends Animal implements Steppable {
 				exiting = false;
 			}
 		}
-
 	}
 	
 	/**
@@ -141,13 +127,8 @@ public class Orangutan extends Animal implements Steppable {
 	 */
 	@Override
 	public void replaceTile(Tile tile) {
-		
-		if(frozen == 0) {
-			super.replaceTile(tile);
-		} else {
-			frozen--;
-		}
-
+		super.replaceTile(tile);
+		if (frozen > 0) frozen--;
 	}
 	
 	/**
