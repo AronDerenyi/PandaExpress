@@ -31,8 +31,7 @@ public class Stage {
 	 * @return the created instance
 	 */
 	public static Stage getInstance(){
-		if(instance == null)
-			return instance = new Stage();
+		if(instance == null) instance = new Stage();
 		return instance;
 	}
 
@@ -49,7 +48,7 @@ public class Stage {
 	 * @param entry the entry tile to be set
 	 */
 	public void setEntry(Entry entry) {
-		Stage.getInstance().entry = entry;
+		this.entry = entry;
 	}
 
 	/**
