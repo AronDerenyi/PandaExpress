@@ -7,6 +7,8 @@ import java.awt.*;
 
 public abstract class AnimalView extends View {
     protected Animal ref;
+    protected int r = 16;
+    protected int offset = 32;
     public AnimalView(Animal a) {
         ref = a;
     }
@@ -22,8 +24,7 @@ public abstract class AnimalView extends View {
             int tileY = ref.getTile().getPositionY();
             int followingTileX = following.getTile().getPositionX();
             int followingTileY = following.getTile().getPositionY();
-            int offset = 16;
-            drawConnection(graphics, tileX - offset, tileY - offset, 16, followingTileX - offset, followingTileY - offset, 16);
+            drawConnection(graphics, tileX - offset, tileY - offset, r, followingTileX - offset, followingTileY - offset, r);
         }
     }
 }

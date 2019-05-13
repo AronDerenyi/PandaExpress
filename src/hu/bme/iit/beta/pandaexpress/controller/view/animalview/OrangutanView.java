@@ -14,7 +14,6 @@ public class OrangutanView extends AnimalView {
         super.onDraw(graphics, screenWidth, screenHeight);
         int tileX = ref.getTile().getPositionX();
         int tileY = ref.getTile().getPositionY();
-        int offset = 16;
-        drawCircle(graphics, tileX - offset, tileY - offset, 16, Color.GREEN);
+        drawCircle(graphics, tileX - offset, tileY - offset, r, Color.GREEN);
     }
 }

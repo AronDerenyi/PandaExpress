@@ -14,7 +14,6 @@ public class RingingPandaView extends PandaView {
         super.onDraw(graphics, screenWidth, screenHeight);
         int tileX = ref.getTile().getPositionX();
         int tileY = ref.getTile().getPositionY();
-        int offset = 16;
-        drawCircle(graphics, tileX - offset, tileY - offset, 16, Color.RED, "Cs");
+        drawCircle(graphics, tileX - offset, tileY - offset, r, Color.RED, "Cs");
     }
 }
