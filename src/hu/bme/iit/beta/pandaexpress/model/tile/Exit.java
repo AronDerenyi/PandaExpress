@@ -2,6 +2,11 @@ package hu.bme.iit.beta.pandaexpress.model.tile;
 
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 
+/**
+ * Exit class
+ * Represents the tile where the exit is.
+ * Animals can leave the map through the exit.
+ */
 public class Exit extends Tile {
 
 

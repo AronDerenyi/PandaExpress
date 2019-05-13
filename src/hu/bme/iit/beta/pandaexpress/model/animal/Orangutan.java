@@ -6,6 +6,11 @@ import hu.bme.iit.beta.pandaexpress.model.Steppable;
 import hu.bme.iit.beta.pandaexpress.model.tile.Entry;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
+/**
+ * Orangutan class
+ * Represents the orangutans.
+ * Orangutans are controlled by the player, they can catch pandas and lead them.
+ */
 public class Orangutan extends Animal implements Steppable {
 	
 	/**

@@ -5,6 +5,12 @@ import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Tile class
+ * Represents the basic tile.
+ * Has access to the tiles that are adjacent to it.
+ * Ancestor to all the special tile types.
+ */
 public class Tile {
 
 	/**
