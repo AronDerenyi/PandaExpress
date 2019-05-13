@@ -26,7 +26,7 @@ public final class Window {
 			@Override
 			public void windowClosing(WindowEvent event) {
 				try {
-					frame.dispose();
+					System.exit(0);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
