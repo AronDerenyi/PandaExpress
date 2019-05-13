@@ -1,49 +1,216 @@
 reset
-create RingingPanda p1
-create BeepingPanda p2
+
 create Entry t1
-create Wardrobe t2
-create Tile t3
-create Tile t4
-create Tile t5
-create SlotMachine t6
-create WeakTile t7
-create Wardrobe t8
-create Exit t9
-create Orangutan o
-create Orangutan o2
+run t1 setPosition 50 80
+
 run Stage setEntry t1
-run t2 connect t8
-run t2 setEntry t5
-run t8 setEntry t7
-run t6 addNoise 10
-run t6 addNoise 30
-run t6 addNoise 55
+
+create Tile t2
+run t2 setPosition 30 50
+create Tile t3
+run t3 setPosition 60 40
+create Tile t4
+run t4 setPosition 70 60
+create Tile t5
+run t5 setPosition 70 85
+create Tile t6
+run t6 setPosition 55 110
+create Tile t7
+run t7 setPosition 35 100
+create Tile t8
+run t8 setPosition 25 80
+create Tile t9
+run t9 setPosition 120 70
+create Tile t10
+run t10 setPosition 100 50
+create Tile t11
+run t11 setPosition 120 40
+create Tile t12
+run t12 setPosition 140 50
+create Tile t13
+run t13 setPosition 100 90
+create Tile t14
+run t14 setPosition 120 100
+create Tile t15
+run t15 setPosition 140 90
+create SlotMachine t16
+run t16 setPosition 180 80
+create Tile t17
+run t17 setPosition 180 40
+create Tile t18
+run t18 setPosition 200 60
+create Tile t19
+run t19 setPosition 215 80
+create Tile t20
+run t20 setPosition 215 100
+create Tile t21
+run t21 setPosition 200 120
+create Tile t22
+run t22 setPosition 160 120
+create Exit t23
+run t23 setPosition 280 80
+create Tile t24
+run t24 setPosition 260 50
+create Tile t25
+run t25 setPosition 280 40
+create Tile t26
+run t26 setPosition 230 30
+create Tile t27
+run t27 setPosition 250 25
+create Tile t28
+run t28 setPosition 260 100
+create Tile t29
+run t29 setPosition 280 110
+create Wardrobe t30
+run t30 setPosition 300 100
+create WeakTile t31
+run t31 setPosition 70 140
+create Tile t32
+run t32 setPosition 50 150
+create Wardrobe t33
+run t33 setPosition 70 170
+create Tile t34
+run t34 setPosition 100 150
+create Tile t35
+run t35 setPosition 90 190
+create ChocolateMachine t36
+run t36 setPosition 140 170
+create Tile t37
+run t37 setPosition 190 160
+create Tile t38
+run t38 setPosition 190 190
+create WeakTile t39
+run t39 setPosition 215 150
+create Tile t40
+run t40 setPosition 215 180
+create Tile t41
+run t41 setPosition 250 160
+create Chair t42
+run t42 setPosition 250 190
+
+
+run t30 connect t33
+run t30 setEntry t29
+run t33 setEntry t35
+
+
+
 run t1 connectNeighbor t2
 run t1 connectNeighbor t3
-run t2 connectNeighbor t4
-run t2 connectNeighbor t5
+run t1 connectNeighbor t4
+run t1 connectNeighbor t5
+run t1 connectNeighbor t6
+run t1 connectNeighbor t7
+run t1 connectNeighbor t8
+run t2 connectNeighbor t3
 run t3 connectNeighbor t4
-run t3 connectNeighbor t7
 run t4 connectNeighbor t5
-run t4 connectNeighbor t6
-run t4 connectNeighbor t7
 run t5 connectNeighbor t6
-run t5 connectNeighbor t9
 run t6 connectNeighbor t7
-run t6 connectNeighbor t9
 run t7 connectNeighbor t8
-run t8 connectNeighbor t9
-run t1 setPosition 50 300
-run t2 setPosition 250 100
-run t3 setPosition 220 500
-run t4 setPosition 280 320
-run t5 setPosition 470 70
-run t6 setPosition 450 370
-run t7 setPosition 430 550
-run t8 setPosition 650 420
-run t9 setPosition 620 220
-run o move t3
-run o2 move t5
-run p1 move t7
-run p2 move t4
+run t7 connectNeighbor t32
+run t6 connectNeighbor t31
+run t4 connectNeighbor t9
+run t5 connectNeighbor t9
+run t5 connectNeighbor t13
+run t4 connectNeighbor t10
+run t9 connectNeighbor t10
+run t9 connectNeighbor t11
+run t9 connectNeighbor t12
+run t9 connectNeighbor t13
+run t9 connectNeighbor t14
+run t9 connectNeighbor t15
+run t9 connectNeighbor t16
+run t10 connectNeighbor t11
+run t11 connectNeighbor t12
+run t13 connectNeighbor t14
+run t13 connectNeighbor t31
+run t14 connectNeighbor t15
+run t14 connectNeighbor t34
+run t14 connectNeighbor t36
+run t15 connectNeighbor t16
+run t15 connectNeighbor t36
+run t12 connectNeighbor t17
+run t16 connectNeighbor t12
+run t16 connectNeighbor t17
+run t16 connectNeighbor t18
+run t16 connectNeighbor t19
+run t16 connectNeighbor t20
+run t16 connectNeighbor t21
+run t16 connectNeighbor t22
+run t17 connectNeighbor t18
+run t18 connectNeighbor t19
+run t18 connectNeighbor t26
+run t19 connectNeighbor t20
+run t19 connectNeighbor t23
+run t20 connectNeighbor t21
+run t20 connectNeighbor t23
+run t20 connectNeighbor t28
+run t21 connectNeighbor t22
+run t21 connectNeighbor t39
+run t22 connectNeighbor t15
+run t22 connectNeighbor t36
+run t22 connectNeighbor t37
+run t23 connectNeighbor t24
+run t23 connectNeighbor t25
+run t23 connectNeighbor t28
+run t23 connectNeighbor t29
+run t23 connectNeighbor t30
+run t24 connectNeighbor t25
+run t24 connectNeighbor t19
+run t24 connectNeighbor t26
+run t25 connectNeighbor t27
+run t26 connectNeighbor t27
+run t28 connectNeighbor t29
+run t28 connectNeighbor t39
+run t29 connectNeighbor t30
+run t29 connectNeighbor t41
+run t31 connectNeighbor t32
+run t31 connectNeighbor t33
+run t31 connectNeighbor t34
+run t32 connectNeighbor t33
+run t33 connectNeighbor t34
+run t33 connectNeighbor t35
+run t34 connectNeighbor t36
+run t34 connectNeighbor t35
+run t36 connectNeighbor t37
+run t36 connectNeighbor t38
+run t37 connectNeighbor t39
+run t37 connectNeighbor t38
+run t38 connectNeighbor t40
+run t39 connectNeighbor t40
+run t39 connectNeighbor t41
+run t40 connectNeighbor t42
+run t41 connectNeighbor t42
+
+
+create BeepingPanda p1
+create BeepingPanda p2
+create RingingPanda p3
+create RingingPanda p4
+create TiredPanda p5
+create TiredPanda p6
+
+run p1 move t10
+run p2 move t12
+run p3 move t24
+run p4 move t25
+run p5 move t14
+run p6 move t40
+
+
+create Orangutan o
+
+run o move t1
+
+run t16 addNoise 13
+run t16 addNoise 18
+run t16 addNoise 30
+run t16 addNoise 44
+run t16 addNoise 70
+
+run t36 addNoise 3
+run t36 addNoise 8
+run t36 addNoise 20
+run t36 addNoise 34
+run t36 addNoise 60
