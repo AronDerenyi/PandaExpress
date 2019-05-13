@@ -4,6 +4,7 @@ create Entry t1
 create Tile t2
 create Tile t3
 create Orangutan o
+run Stage setEntry t1
 run t1 connectNeighbor t2
 run t1 connectNeighbor t3
 run t2 connectNeighbor t3

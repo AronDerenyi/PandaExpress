@@ -37,7 +37,7 @@ public class Controller extends Screen implements Steppable {
 		return instance;
 	}
 
-	private static String initFile = "src/hu/bme/iit/beta/pandaexpress/controller/initFile.txt";
+	private static String initFile = "src/hu/bme/iit/beta/pandaexpress/controller/init.txt";
 
 	private Orangutan selectedOrangutan;
 	private List<View> views;
