@@ -7,6 +7,6 @@ import java.awt.*;
 public class ChairView extends TileView {
 
 	public ChairView(Tile tile) {
-		super(tile, Color.WHITE, "F");
+		super(tile, new Color(160, 120, 100), "F");
 	}
 }

@@ -7,6 +7,6 @@ import java.awt.*;
 public class SlotMachineView extends TileView {
 
 	public SlotMachineView(Tile tile) {
-		super(tile, Color.WHITE, "J");
+		super(tile, new Color(255, 170, 50), "J");
 	}
 }

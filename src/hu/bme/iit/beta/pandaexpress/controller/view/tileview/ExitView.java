@@ -7,6 +7,6 @@ import java.awt.*;
 public class ExitView extends TileView {
 
 	public ExitView(Tile tile) {
-		super(tile, Color.WHITE, "Ki");
+		super(tile, new Color(255, 220, 220), "Ki");
 	}
 }
