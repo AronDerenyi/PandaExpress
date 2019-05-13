@@ -73,6 +73,7 @@ abstract public class Animal implements Steppable {
 	public void leaveTile() {
 		if (tile != null) {
 			tile.setAnimal(null);
+			tile = null;
 		}
 	}
 
