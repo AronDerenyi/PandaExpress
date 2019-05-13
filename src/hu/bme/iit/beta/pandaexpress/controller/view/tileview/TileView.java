@@ -39,11 +39,12 @@ public class TileView extends View {
 
 	@Override
 	public boolean onClick(int mouseX, int mouseY) {
-		if (isCircleClicked(mouseX, mouseY, tile.getPositionX(), tile.getPositionY(), radius)) {
+		if (Controller.getInstance().isOrangutanSelected() &&
+				isCircleClicked(mouseX, mouseY, tile.getPositionX(), tile.getPositionY(), radius)) {
+
 			Controller.getInstance().tileClicked(this.tile);
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 }

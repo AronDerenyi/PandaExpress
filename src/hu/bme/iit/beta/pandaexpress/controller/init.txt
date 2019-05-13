@@ -12,6 +12,7 @@ create Wardrobe t8
 create Exit t9
 create Orangutan o
 create Orangutan o2
+run Stage setEntry t1
 run t2 connect t8
 run t2 setEntry t5
 run t8 setEntry t7
