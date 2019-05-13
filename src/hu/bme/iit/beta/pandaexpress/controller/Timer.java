@@ -22,8 +22,8 @@ public class Timer {
         timerTask = new MyTimerTask();
     }
     public void start() {
-        long timeSpan = 100;
-        timer.scheduleAtFixedRate(timerTask, 0, timeSpan);
+        long timeSpan = 400;
+        timer.scheduleAtFixedRate(timerTask, 1000, timeSpan);
     }
     private void tick() {
         synchronized (objects) {

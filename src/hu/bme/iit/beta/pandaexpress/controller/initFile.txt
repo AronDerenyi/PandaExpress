@@ -1,9 +1,14 @@
 reset
-create BeepingPanda p1
+create RingingPanda p1
 create Entry t1
 create Tile t2
 create Tile t3
+create Orangutan o
 run t1 connectNeighbor t2
 run t1 connectNeighbor t3
 run t2 connectNeighbor t3
+run t1 setPosition 100 400
+run t2 setPosition 300 200
+run t3 setPosition 400 400
 run p1 move t1
+run o move t2

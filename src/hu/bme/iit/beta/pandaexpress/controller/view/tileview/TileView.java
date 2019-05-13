@@ -3,6 +3,7 @@ package hu.bme.iit.beta.pandaexpress.controller.view.tileview;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import hu.bme.iit.beta.pandaexpress.controller.Controller;
 import hu.bme.iit.beta.pandaexpress.controller.view.View;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
@@ -25,6 +26,13 @@ public class TileView extends View {
 			Tile neighbor= tile.getNeighbors()[i];
 			drawConnection(graphics, tile.getPositionX(), tile.getPositionY(), r, neighbor.getPositionX(), neighbor.getPositionY(), r);
 		}
-		
+	}
+
+	@Override
+	public boolean onClick(int mouseX, int mouseY) {
+		if(!isCircleClicked(mouseX, mouseY, tile.getPositionX(), tile.getPositionY(), r))
+			return false;
+		Controller.getInstance().tileClicked(this.tile);
+		return true;
 	}
 }
