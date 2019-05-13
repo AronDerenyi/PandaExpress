@@ -6,11 +6,26 @@ import hu.bme.iit.beta.pandaexpress.model.animal.Orangutan;
 
 import java.awt.*;
 
+/**
+ * Orangutan view class
+ * Responsible for showing a circle that represents an orangutan.
+ */
 public class OrangutanView extends AnimalView {
+    /**
+     * Constructor
+     * @param a The animal that the view is referencing
+     */
     public OrangutanView(Animal a) {
         super(a);
     }
 
+    /**
+     * The method that is called upon refreshing the view
+     * Draws a green circle representing the orangutan
+     * @param graphics The graphical context
+     * @param screenWidth The width of the graphical context
+     * @param screenHeight The height of the graphical context
+     */
     @Override
     public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
         super.onDraw(graphics, screenWidth, screenHeight);
@@ -19,6 +34,13 @@ public class OrangutanView extends AnimalView {
         drawCircle(graphics, tileX - offset, tileY - offset, r, Color.GREEN);
     }
 
+    /**
+     * The method that is called when the canvas is clicked
+     * If the mouse hits the orangutan's circle when the user clicked, the orangutan will be selected
+     * @param mouseX
+     * @param mouseY
+     * @return
+     */
     @Override
     public boolean onClick(int mouseX, int mouseY) {
         int tileX = ref.getTile().getPositionX();

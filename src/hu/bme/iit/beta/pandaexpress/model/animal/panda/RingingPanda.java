@@ -1,6 +1,9 @@
 package hu.bme.iit.beta.pandaexpress.model.animal.panda;
 
-
+/**
+ * Ringing Panda class
+ * Represents the Pandas who are afraid of the ringing of the slot machines.
+ */
 public class RingingPanda extends Panda {
 
 	/**

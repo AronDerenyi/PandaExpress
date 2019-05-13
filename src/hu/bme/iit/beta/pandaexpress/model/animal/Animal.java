@@ -4,6 +4,9 @@ import hu.bme.iit.beta.pandaexpress.debug.Logger;
 import hu.bme.iit.beta.pandaexpress.model.Steppable;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
+/**
+ * Base class for all the animals.
+ */
 abstract public class Animal implements Steppable {
 	/**
 	 * A flag that stores whether the animal is dead

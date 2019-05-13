@@ -2,6 +2,12 @@ package hu.bme.iit.beta.pandaexpress.model.tile;
 
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 
+/**
+ * Weak tile class
+ * Represents the tiles that can break when animals step on them for too many times.
+ * Stores the number which tells that how many steps is needed for it to break.
+ * If it is broken, the animals that step on it, fall down and die.
+ */
 public class WeakTile extends Tile{
 	
 	private int lives = 20;

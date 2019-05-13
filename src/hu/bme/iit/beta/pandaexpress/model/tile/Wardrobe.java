@@ -3,6 +3,11 @@ package hu.bme.iit.beta.pandaexpress.model.tile;
 
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 
+/**
+ * Wardrobe class
+ * Represents the tiles which have a wardrobe on them.
+ * Each wardrobe has a pair. Animals can walk through a pair of wardrobes: enter one and leave the other.
+ */
 public class Wardrobe extends Tile {
 	
 	/**

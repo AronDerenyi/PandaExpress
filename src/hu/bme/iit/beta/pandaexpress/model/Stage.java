@@ -3,6 +3,11 @@ package hu.bme.iit.beta.pandaexpress.model;
 
 import hu.bme.iit.beta.pandaexpress.model.tile.Entry;
 
+/**
+ * Stage singleton class
+ * Represents the map. Creates the tiles and animals.
+ * Stores the score of the player.
+ */
 public class Stage {
 
 

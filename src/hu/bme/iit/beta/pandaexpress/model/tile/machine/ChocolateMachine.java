@@ -3,6 +3,11 @@ package hu.bme.iit.beta.pandaexpress.model.tile.machine;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
+/**
+ * Chocolate Machine class
+ * Represents the tiles that has a chocolate machine on them
+ * Extends the Machine abstract class
+ */
 public class ChocolateMachine extends Machine {
 	
 	/** 

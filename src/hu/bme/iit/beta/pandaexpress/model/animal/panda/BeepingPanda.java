@@ -1,5 +1,9 @@
 package hu.bme.iit.beta.pandaexpress.model.animal.panda;
 
+/**
+ * Beeping Panda class
+ * Represents the Pandas who are afraid of the beeping of the chocolate machines.
+ */
 public class BeepingPanda extends Panda {
 
 	/**

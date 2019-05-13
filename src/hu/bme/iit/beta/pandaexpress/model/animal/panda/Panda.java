@@ -3,6 +3,9 @@ import hu.bme.iit.beta.pandaexpress.model.Stage;
 import hu.bme.iit.beta.pandaexpress.model.animal.Animal;
 import hu.bme.iit.beta.pandaexpress.model.tile.Tile;
 
+/**
+ * Base class for the various types of pandas
+ */
 abstract public class Panda extends Animal {
 	/**
 	 * Overrides the animal's exit function (for further information
