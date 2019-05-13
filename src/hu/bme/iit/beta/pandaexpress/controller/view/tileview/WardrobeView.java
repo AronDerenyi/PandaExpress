@@ -7,6 +7,6 @@ import java.awt.*;
 public class WardrobeView extends TileView {
 
 	public WardrobeView(Tile tile) {
-		super(tile, Color.WHITE, "Sz");
+		super(tile, new Color(220, 220, 255), "Sz");
 	}
 }

@@ -10,7 +10,7 @@ public class TileView extends View {
 
 	public final Tile tile;
 
-	private int radius = 50;
+	private int radius = 20;
 	private Paint color;
 	private String text;
 
@@ -27,8 +27,6 @@ public class TileView extends View {
 
 	@Override
 	public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
-		if(tile.getAnimal() == null) color = Color.RED;
-		else color = Color.WHITE;
 		drawCircle(graphics, tile.getPositionX(), tile.getPositionY(), radius, color, text);
 
 		for (Tile neighbor : tile.getNeighbors()) {

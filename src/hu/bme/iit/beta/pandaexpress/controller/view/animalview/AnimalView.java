@@ -18,11 +18,11 @@ public abstract class AnimalView extends View {
     /**
      * Radius of the circle that the represents the animal on the canvas
      */
-    protected int r = 16;
+    protected int r = 12;
     /**
      * The length that the animal's circle is shifted from the center of the tile the animal is on
      */
-    protected int offset = 32;
+    protected int offset = 10;
 
     /**
      * Constructor

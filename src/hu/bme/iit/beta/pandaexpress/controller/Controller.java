@@ -132,6 +132,10 @@ public class Controller extends Screen implements Steppable {
 		flush();
 	}
 
+	public Orangutan getSelectedOrangutan(){
+		return selectedOrangutan;
+	}
+
 	public void setSelectedOrangutan(Orangutan selected){
 		selectedOrangutan = selected;
 	}

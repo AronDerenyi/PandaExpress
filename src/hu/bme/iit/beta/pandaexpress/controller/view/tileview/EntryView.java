@@ -7,6 +7,6 @@ import java.awt.*;
 public class EntryView extends TileView {
 
 	public EntryView(Tile tile) {
-		super(tile, Color.WHITE, "Be");
+		super(tile, new Color(220, 255, 220), "Be");
 	}
 }

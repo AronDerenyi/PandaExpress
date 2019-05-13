@@ -7,6 +7,6 @@ import java.awt.*;
 public class WeakTileView extends TileView {
 
 	public WeakTileView(Tile tile) {
-		super(tile, Color.WHITE, "T");
+		super(tile, new Color(230, 230, 230), "T");
 	}
 }

@@ -11,15 +11,16 @@ import java.awt.*;
  * Responsible for showing a circle that represents an orangutan.
  */
 public class OrangutanView extends AnimalView {
-    Color color;
+
+    private static int count = 0;
+    private final int index = count++;
+
     /**
      * Constructor
      * @param a The animal that the view is referencing
      */
     public OrangutanView(Animal a) {
         super(a);
-        offset -= 5;
-        color = new Color(0, 255, (int)(Math.random() * 255));
     }
 
     /**
@@ -35,7 +36,10 @@ public class OrangutanView extends AnimalView {
         super.onDraw(graphics, screenWidth, screenHeight);
         int tileX = ref.getTile().getPositionX();
         int tileY = ref.getTile().getPositionY();
-        drawCircle(graphics, tileX - offset, tileY - offset, r, color);
+        drawCircle(graphics, tileX - offset, tileY - offset, r,
+                Controller.getInstance().getSelectedOrangutan() == ref ? Color.CYAN : Color.GREEN,
+                Integer.toString(index)
+        );
     }
 
     /**
