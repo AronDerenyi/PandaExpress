@@ -11,12 +11,15 @@ import java.awt.*;
  * Responsible for showing a circle that represents an orangutan.
  */
 public class OrangutanView extends AnimalView {
+    Color color;
     /**
      * Constructor
      * @param a The animal that the view is referencing
      */
     public OrangutanView(Animal a) {
         super(a);
+        offset -= 5;
+        color = new Color(0, 255, (int)(Math.random() * 255));
     }
 
     /**
@@ -28,10 +31,11 @@ public class OrangutanView extends AnimalView {
      */
     @Override
     public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
+        if(ref.isDead()) return;
         super.onDraw(graphics, screenWidth, screenHeight);
         int tileX = ref.getTile().getPositionX();
         int tileY = ref.getTile().getPositionY();
-        drawCircle(graphics, tileX - offset, tileY - offset, r, Color.GREEN);
+        drawCircle(graphics, tileX - offset, tileY - offset, r, color);
     }
 
     /**
@@ -43,6 +47,7 @@ public class OrangutanView extends AnimalView {
      */
     @Override
     public boolean onClick(int mouseX, int mouseY) {
+        if(ref.isDead()) return false;
         int tileX = ref.getTile().getPositionX();
         int tileY = ref.getTile().getPositionY();
         if(!isCircleClicked(mouseX, mouseY, tileX - offset, tileY - offset, r))

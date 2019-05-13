@@ -135,7 +135,7 @@ abstract public class Animal implements Steppable {
 	 * @return Whether or not this animal could follow the given animal
 	 */
 	public boolean follow(Animal animal) {
-		if (animal == this) throw new RuntimeException("Error");
+		if (animal == this) return false;
 
 		unfollow();
 		if (animal.followedBy != null) {

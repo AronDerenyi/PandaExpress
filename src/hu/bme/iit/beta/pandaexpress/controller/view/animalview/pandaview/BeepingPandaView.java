@@ -26,6 +26,7 @@ public class BeepingPandaView extends PandaView {
      */
     @Override
     public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
+        if(ref.isDead()) return;
         super.onDraw(graphics, screenWidth, screenHeight);
         int tileX = ref.getTile().getPositionX();
         int tileY = ref.getTile().getPositionY();

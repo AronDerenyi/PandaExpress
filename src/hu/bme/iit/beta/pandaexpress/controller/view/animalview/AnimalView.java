@@ -41,6 +41,7 @@ public abstract class AnimalView extends View {
      */
     @Override
     public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
+        if(ref.isDead()) return;
         onDrawConnection(graphics, screenWidth, screenHeight);
     }
 
