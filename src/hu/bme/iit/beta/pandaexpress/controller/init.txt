@@ -1,15 +1,49 @@
 reset
 create RingingPanda p1
+create BeepingPanda p2
 create Entry t1
-create Tile t2
+create Wardrobe t2
 create Tile t3
+create Tile t4
+create Tile t5
+create SlotMachine t6
+create WeakTile t7
+create Wardrobe t8
+create Exit t9
 create Orangutan o
+create Orangutan o2
 run Stage setEntry t1
+run t2 connect t8
+run t2 setEntry t5
+run t8 setEntry t7
+run t6 addNoise 10
+run t6 addNoise 30
+run t6 addNoise 55
 run t1 connectNeighbor t2
 run t1 connectNeighbor t3
-run t2 connectNeighbor t3
-run t1 setPosition 100 400
-run t2 setPosition 300 200
-run t3 setPosition 400 400
-run p1 move t1
-run o move t2
+run t2 connectNeighbor t4
+run t2 connectNeighbor t5
+run t3 connectNeighbor t4
+run t3 connectNeighbor t7
+run t4 connectNeighbor t5
+run t4 connectNeighbor t6
+run t4 connectNeighbor t7
+run t5 connectNeighbor t6
+run t5 connectNeighbor t9
+run t6 connectNeighbor t7
+run t6 connectNeighbor t9
+run t7 connectNeighbor t8
+run t8 connectNeighbor t9
+run t1 setPosition 50 300
+run t2 setPosition 250 100
+run t3 setPosition 220 500
+run t4 setPosition 280 320
+run t5 setPosition 470 70
+run t6 setPosition 450 370
+run t7 setPosition 430 550
+run t8 setPosition 650 420
+run t9 setPosition 620 220
+run o move t3
+run o2 move t5
+run p1 move t7
+run p2 move t4
