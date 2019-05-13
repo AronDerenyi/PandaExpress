@@ -6,6 +6,11 @@ import java.awt.*;
 
 public class ChairView extends TileView {
 
+	/**
+	 * @param tile - reference for a Chair
+	 * 
+	 * Constructor - sets the ChairView specific properties
+	 */
 	public ChairView(Tile tile) {
 		super(tile, new Color(160, 120, 100), "F");
 	}

@@ -6,6 +6,11 @@ import java.awt.*;
 
 public class ExitView extends TileView {
 
+	/**
+	 * @param tile - reference for an Exit
+	 * 
+	 * Constructor - sets the Exit specific properties
+	 */
 	public ExitView(Tile tile) {
 		super(tile, new Color(255, 220, 220), "Ki");
 	}

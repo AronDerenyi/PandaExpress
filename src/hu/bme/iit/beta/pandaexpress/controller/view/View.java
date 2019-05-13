@@ -4,14 +4,38 @@ import java.awt.*;
 
 public abstract class View {
 
+	/**
+	 * @param graphics
+	 * @param screenWidth
+	 * @param screenHeight
+	 * 
+	 * empty method - descendants have to specify it
+	 */
 	public void onDraw(Graphics2D graphics, int screenWidth, int screenHeight) {
 
 	}
 
+	/**
+	 * @param mouseX - Position of the click
+	 * @param mouseY
+	 * @return - true if the click was successful - else false
+	 * 
+	 *  This method is called when clicked  - descendants have to specify it
+	 */
 	public boolean onClick(int mouseX, int mouseY) {
 		return false;
 	}
 
+	/**
+	 * @param mouseX - Position of the click
+	 * @param mouseY
+	 * @param x - Parameters of the circle
+	 * @param y
+	 * @param r
+	 * @return - true if the click happened inside the circle
+	 * 
+	 * this method returns with true if a click is happened in a circle described by the properties
+	 */
 	public final boolean isCircleClicked(int mouseX, int mouseY, int x, int y, int r) {
 		float distX = mouseX - x;
 		float distY = mouseY - y;
@@ -19,6 +43,16 @@ public abstract class View {
 		return dist < r;
 	}
 
+	/**
+	 * @param graphics
+	 * @param x - Parameters of the Circle
+	 * @param y
+	 * @param r
+	 * @param color - fill color of the circle
+	 * @param text - text in the circle
+	 * 
+	 * this method draws a circle described by the properties
+	 */
 	public final void drawCircle(Graphics2D graphics, int x, int y, int r, Paint color, String text) {
 		graphics.setPaint(color);
 		graphics.fillOval(x - r, y - r, r * 2, r * 2);
@@ -35,10 +69,30 @@ public abstract class View {
 		}
 	}
 
+	/**
+	 * @param graphics
+	 * @param x - Parameters of the Circle
+	 * @param y
+	 * @param r
+	 * @param color  - fill color of the circle
+	 * 
+	 * this method draws a circle described without text
+	 */
 	public final void drawCircle(Graphics2D graphics, int x, int y, int r, Paint color) {
 		drawCircle(graphics, x, y, r, color, null);
 	}
 
+	/**
+	 * @param graphics
+	 * @param x1 - Parameters of the Circle1
+	 * @param y1
+	 * @param r1
+	 * @param x2 - Parameters of the Circle2
+	 * @param y2
+	 * @param r2
+	 * 
+	 * Draws a straight line between two circle
+	 */
 	public final void drawConnection(Graphics2D graphics, int x1, int y1, int r1, int x2, int y2, int r2) {
 		float dirX = x2 - x1;
 		float dirY = y2 - y1;

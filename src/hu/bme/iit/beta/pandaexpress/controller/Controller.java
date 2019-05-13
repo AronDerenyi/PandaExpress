@@ -32,17 +32,35 @@ public class Controller extends Screen implements Steppable {
 
 	private static Controller instance;
 
+	/**
+	 * method returns instance
+	 */
 	public static Controller getInstance(){
 		if(instance == null) instance = new Controller();
 		return instance;
 	}
 
+	/**
+	 * property for the init file
+	 */
 	private static String initFile = "src/hu/bme/iit/beta/pandaexpress/controller/init.txt";
 
+	/**
+	 * this property shows which orangutan is selected
+	 */
 	private Orangutan selectedOrangutan;
+	/**
+	 * List of Views
+	 */
 	private List<View> views;
+	/** 
+	 * property for timer
+	 */
 	private Timer timer;
 
+	/**
+	 *  private Constructor - initializes the game
+	 */
 	private Controller(){
 		timer = new Timer();
 		timer.addSteppable(this);
@@ -69,6 +87,9 @@ public class Controller extends Screen implements Steppable {
 				DFS(neighbor, foundTiles);
 	}
 
+	/**
+	 * created the views for the tiles and the animals stepping on it
+	 */
 	private void createViews(Collection<Tile> tiles){
 		for(Tile tile : tiles){
 			views.add(createTileView(tile));
@@ -82,6 +103,9 @@ public class Controller extends Screen implements Steppable {
 		}
 	}
 
+	/**
+	 * this method creates tile views
+	 */
 	private View createTileView(Tile tile){
 		Class tileType = tile.getClass();
 		if(tileType == Chair.class)
@@ -103,6 +127,9 @@ public class Controller extends Screen implements Steppable {
 		return null;
 	}
 
+	/**
+	 * this method creates animal views
+	 */
 	private View createAnimalView(Animal animal){
 		Class animalType = animal.getClass();
 		if(animalType == Orangutan.class)
@@ -132,6 +159,9 @@ public class Controller extends Screen implements Steppable {
 		flush();
 	}
 
+	/**
+	 * method selects an orangutan
+	 */
 	public Orangutan getSelectedOrangutan(){
 		return selectedOrangutan;
 	}
@@ -144,6 +174,9 @@ public class Controller extends Screen implements Steppable {
 		return selectedOrangutan != null;
 	}
 
+	/**
+	 * this method handles when a tile is clicked
+	 */
 	public void tileClicked(Tile tile){
 		if(selectedOrangutan == null) return;
 		for(Tile t: selectedOrangutan.getTile().getNeighbors())
@@ -161,6 +194,9 @@ public class Controller extends Screen implements Steppable {
 				return;
 	}
 
+	/** 
+	 * when animals stepping redraws table
+	 */
 	@Override
 	public void step() {
 		Graphics2D g = getGraphics();
